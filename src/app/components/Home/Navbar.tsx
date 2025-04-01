@@ -16,7 +16,7 @@ const Navbar = () => {
         </div>
 
         <Link href="/">
-            <button className="btn border-0 bg-transparent fs-1 text-light">
+            <button className="btn border-0 bg-transparent fs-1 text-light hover:scale-110 hover:text-success">
               🏠
             </button>
           </Link>
