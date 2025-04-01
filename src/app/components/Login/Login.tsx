@@ -1,7 +1,6 @@
 "use client";
 import { useState } from "react";
 import Image from "next/image";
-import Link from "next/link";
 import Login_Image from "../../assets/Login/Login_Image.png";
 import AuthLinks from "./AuthLinks";
 import GoogleLoginButton from "./GoogleLoginButton";
