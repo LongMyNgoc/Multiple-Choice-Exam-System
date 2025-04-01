@@ -3,18 +3,9 @@ import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import Login_Image from "../../assets/Login/Login_Image.png";
-import { FcGoogle } from "react-icons/fc";
-
-const hoverEffect = (e: React.MouseEvent<HTMLButtonElement>, type: "in" | "out") => {
-  e.currentTarget.style.filter = type === "in" ? "brightness(1.1)" : "brightness(1)";
-};
-const clickEffect = (e: React.MouseEvent<HTMLButtonElement>, type: "down" | "up") => {
-  e.currentTarget.style.transform = type === "down" ? "scale(0.95)" : "scale(1)";
-};
-const linkHover = (e: React.MouseEvent<HTMLAnchorElement>, type: "in" | "out") => {
-  e.currentTarget.style.color = type === "in" ? "#FF4081" : "#007BFF";
-  e.currentTarget.style.transform = type === "in" ? "scale(1.1)" : "scale(1)";
-};
+import AuthLinks from "./AuthLinks";
+import GoogleLoginButton from "./GoogleLoginButton";
+import { hoverEffect, clickEffect } from "../../utils/hoverEffects"; // Import các hiệu ứng
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -25,17 +16,7 @@ const Login = () => {
         <h1 className="mb-4">Login Now</h1>
         <p className="mb-4">Hi, Welcome back 👋</p>
 
-        <button 
-          className="btn w-100 d-flex align-items-center justify-content-center mb-3"
-          style={{ backgroundColor: "#FFA3BE", border: "1px solid #ccc", padding: "10px" }}
-          onMouseOver={(e) => hoverEffect(e, "in")}
-          onMouseOut={(e) => hoverEffect(e, "out")}
-          onMouseDown={(e) => clickEffect(e, "down")}
-          onMouseUp={(e) => clickEffect(e, "up")}
-        >
-          <FcGoogle size={24} className="me-2" />
-          Continue with Google
-        </button>
+        <GoogleLoginButton onClick={() => console.log("Google login clicked")} />
 
         <div className="text-center w-100 mb-3" style={{ fontSize: "0.9rem", color: "#666" }}>
           ─────── or Login with Email ───────
@@ -65,7 +46,6 @@ const Login = () => {
             onMouseOver={(e) => e.currentTarget.style.backgroundColor = "rgba(71, 75, 202, 0.1)"}
             onMouseOut={(e) => e.currentTarget.style.backgroundColor = "transparent"}
           >
-            👁️
           </button>
         </div>
 
@@ -80,31 +60,12 @@ const Login = () => {
           Login
         </button>
 
-        <div className="mt-3 d-flex justify-content-between w-100">
-          <Link 
-            href="/forgot-password" 
-            className="text-decoration-none"
-            style={{ fontSize: "0.9rem", color: "#007BFF", transition: "all 0.3s ease-in-out" }}
-            onMouseOver={(e) => linkHover(e, "in")}
-            onMouseOut={(e) => linkHover(e, "out")}
-          >
-            Forgot Password?
-          </Link>
-          <Link 
-            href="/signup" 
-            className="text-decoration-none"
-            style={{ fontSize: "0.9rem", color: "#007BFF", transition: "all 0.3s ease-in-out" }}
-            onMouseOver={(e) => linkHover(e, "in")}
-            onMouseOut={(e) => linkHover(e, "out")}
-          >
-            Not registered yet? Create an account SignUp
-          </Link>
-        </div>
+        <AuthLinks />
       </div>
 
       <div className="w-50 d-grid justify-items-center" style={{ marginTop: "5%" }}>
-    <Image src={Login_Image} alt="Login" className="img-fluid" />
-  </div>
+        <Image src={Login_Image} alt="Login" className="img-fluid" />
+      </div>
     </div>
   );
 };
