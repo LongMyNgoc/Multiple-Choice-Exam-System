@@ -1,13 +1,26 @@
 "use client";
 import { useState } from "react";
+import { useRouter } from 'next/navigation';
 import Image from "next/image";
 import Login_Image from "../../assets/Login/Login_Image.png";
 import AuthLinks from "./AuthLinks";
 import GoogleLoginButton from "./GoogleLoginButton";
 import { hoverEffect, clickEffect } from "../../utils/hoverEffects"; // Import các hiệu ứng
+import { loginWithEmail } from "../../utils/auth"; // Import hàm đăng nhập
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
+  const [email, setEmail] = useState(""); // Lưu email
+  const [password, setPassword] = useState(""); // Lưu mật khẩu
+  const [loading, setLoading] = useState(false); // Trạng thái loading khi đăng nhập
+  const router = useRouter();
+
+  const handleLogin = async () => {
+    setLoading(true); // Bắt đầu trạng thái loading
+    await loginWithEmail(email, password); // Gọi hàm đăng nhập
+    setLoading(false); // Kết thúc trạng thái loading
+    router.push('/pages/QuizList'); // Chuyển hướng đến trang chủ
+  };
 
   return (
     <div className="d-flex" style={{ backgroundColor: "#F9E6E6", minHeight: "100vh" }}>
@@ -21,9 +34,13 @@ const Login = () => {
           ─────── or Login with Email ───────
         </div>
 
-        <input 
-          type="email" className="form-control mb-3" placeholder="Enter your email"
+        <input
+          type="email"
+          className="form-control mb-3"
+          placeholder="Enter your email"
           style={{ backgroundColor: "#FFA3BE", border: "none", padding: "10px" }}
+          value={email}
+          onChange={(e) => setEmail(e.target.value)} // Cập nhật email khi người dùng nhập
           onFocus={(e) => e.currentTarget.style.boxShadow = "0 0 5px rgba(71, 75, 202, 0.5)"}
           onBlur={(e) => e.currentTarget.style.boxShadow = "none"}
         />
@@ -34,10 +51,12 @@ const Login = () => {
             className="form-control"
             placeholder="Enter your password"
             style={{ backgroundColor: "#FFA3BE", border: "none", padding: "10px" }}
+            value={password}
+            onChange={(e) => setPassword(e.target.value)} // Cập nhật mật khẩu khi người dùng nhập
             onFocus={(e) => e.currentTarget.style.boxShadow = "0 0 5px rgba(71, 75, 202, 0.5)"}
             onBlur={(e) => e.currentTarget.style.boxShadow = "none"}
           />
-          <button 
+          <button
             type="button"
             className="position-absolute top-50 end-0 translate-middle p-2 border-0 bg-transparent"
             style={{ cursor: "pointer" }}
@@ -48,15 +67,17 @@ const Login = () => {
           </button>
         </div>
 
-        <button 
+        <button
           className="btn w-100"
           style={{ backgroundColor: "#474BCA", color: "white" }}
           onMouseOver={(e) => hoverEffect(e, "in")}
           onMouseOut={(e) => hoverEffect(e, "out")}
           onMouseDown={(e) => clickEffect(e, "down")}
           onMouseUp={(e) => clickEffect(e, "up")}
+          onClick={handleLogin} // Gọi hàm xử lý đăng nhập khi nhấn nút
+          disabled={loading} // Vô hiệu hóa nút khi đang đăng nhập
         >
-          Login
+          {loading ? "Đang đăng nhập..." : "Login"}
         </button>
 
         <AuthLinks />
