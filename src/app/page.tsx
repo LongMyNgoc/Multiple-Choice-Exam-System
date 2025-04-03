@@ -1,6 +1,14 @@
 // page.tsx
-import Home from "./components/Home/Home";
+import Navbar from "./components/Home/Navbar";
+import HomeContent from "./components/Home/HomeContent";
+import Footer from "./components/Home/Footer";
 
 export default function Page() {
-  return <Home />;
+  return (
+    <>
+    <Navbar />
+    <HomeContent />
+    <Footer />
+    </>
+  );
 }
