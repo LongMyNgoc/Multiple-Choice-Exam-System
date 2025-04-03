@@ -17,10 +17,15 @@ const Login = () => {
 
   const handleLogin = async () => {
     setLoading(true); // Bắt đầu trạng thái loading
-    await loginWithEmail(email, password); // Gọi hàm đăng nhập
+    const result = await loginWithEmail(email, password); // Gọi hàm đăng nhập
+  
     setLoading(false); // Kết thúc trạng thái loading
-    router.push('/pages/QuizList'); // Chuyển hướng đến trang chủ
-  };
+  
+    // Chỉ chuyển trang nếu đăng nhập thành công (không có lỗi)
+    if (result.error === null) {
+      router.push('/pages/QuizList'); // Chuyển hướng đến trang QuizList
+    }
+  };  
 
   return (
     <div className="d-flex" style={{ backgroundColor: "#F9E6E6", minHeight: "100vh" }}>
