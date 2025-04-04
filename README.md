@@ -1,7 +1,7 @@
-# Hệ Thống Thi Trắc Nghiệm (FRONT-END)
+# Multiple Choice Exam System (FRONT-END)
 
 ## Giới Thiệu
-**Hệ thống thi trắc nghiệm** là một nền tảng hỗ trợ đánh giá và kiểm tra kiến thức của sinh viên thông qua hình thức thi trắc nghiệm trực tuyến. Hệ thống cho phép người dùng tham gia thi, quản lý câu hỏi, theo dõi kết quả, và hỗ trợ xác thực người dùng.
+**Multiple Choice Exam System** là một nền tảng hỗ trợ đánh giá và kiểm tra kiến thức của sinh viên thông qua hình thức thi trắc nghiệm trực tuyến. Hệ thống cho phép người dùng tham gia thi, quản lý câu hỏi, theo dõi kết quả, và hỗ trợ xác thực người dùng.
 
 ## Tính Năng Chính
 - **Đăng ký & Đăng nhập**: Người dùng có thể đăng ký tài khoản và đăng nhập bằng Email/Password hoặc Google.
@@ -60,6 +60,6 @@ Mọi ý kiến đóng góp hoặc báo lỗi có thể được gửi qua hệ 
 5. Tạo Pull Request.
 
 ## Thông Tin Liên Hệ
-📧 Email: longmyngoc2004@gmail.com <br>
+📧 Email: nguyenphilong.dev@gmail.com <br>
 📌 GitHub: [LongMyNgoc](https://github.com/LongMyNgoc) <br>
 📌 Vercel Deployment: [Multiple-Choice-Exam-System](https://multiple-choice-eta.vercel.app/)
