@@ -18,7 +18,7 @@ const Topbar = () => {
   }, []);
 
   return (
-    <nav className="navbar navbar-expand-lg navbar-light" style={{ backgroundColor: "#34C759", zIndex: 1000 }}>
+    <nav className="navbar navbar-expand-lg navbar-light sticky-top" style={{ backgroundColor: "#34C759", zIndex: 1000 }}>
       <div className="container-fluid d-flex justify-content-between align-items-center">
         <div className="d-flex align-items-center gap-4">
           <Image src={Logo_SP} alt="Logo SP" className="img-fluid w-100 w-sm-50 w-md-30 w-lg-20" />
