@@ -6,7 +6,7 @@ import Login_Image from "../../assets/Login/Login_Image.png";
 import AuthLinks from "./AuthLinks";
 import GoogleLoginButton from "./GoogleLoginButton";
 import { hoverEffect, clickEffect } from "../../utils/hoverEffects"; // Import các hiệu ứng
-import { loginWithEmail } from "../../utils/auth"; // Import hàm đăng nhập
+import { loginWithEmail } from "@/app/utils/authLoginWithEmail"; // Import hàm đăng nhập
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);

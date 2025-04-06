@@ -2,10 +2,7 @@
 import { FC } from "react";
 import Link from "next/link";
 import { linkHover } from '@/app/utils/hoverEffects'
-
-interface QuizListProps {
-  setSelectedQuiz: (quiz: string | null) => void;
-}
+import { QuizListProps } from "@/app/types/quizList";
 
 const Sidebar:FC<QuizListProps> = ({ setSelectedQuiz }) => {
   return (

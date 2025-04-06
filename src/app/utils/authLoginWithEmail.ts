@@ -12,6 +12,15 @@ import { FirebaseError } from "firebase/app";
 export const loginWithEmail = async (email: string, password: string) => {
   try {
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
+
+    // Kiểm tra nếu email chưa được xác minh
+    if (!userCredential.user.emailVerified) {
+      // Đăng xuất ngay lập tức nếu email chưa xác minh
+      await auth.signOut();
+      toast.warning("Bạn cần xác minh email trước khi tiếp tục.");
+      return { user: null, error: "Email chưa được xác minh" };
+    }
+
     toast.success("Đăng nhập thành công!");
     localStorage.setItem("userEmail", email);
     return { user: userCredential.user, error: null };
