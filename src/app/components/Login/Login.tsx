@@ -6,7 +6,7 @@ import Login_Image from "../../assets/Login/Login_Image.png";
 import AuthLinks from "./AuthLinks";
 import GoogleLoginButton from "./GoogleLoginButton";
 import { hoverEffect, clickEffect } from "../../utils/hoverEffects"; // Import các hiệu ứng
-import { loginWithEmail } from "@/app/utils/authLoginWithEmail"; // Import hàm đăng nhập
+import { loginWithEmail } from "@/app/utils/authFirebase/authLoginWithEmail"; // Import hàm đăng nhập
 
 const Login = () => {
   const [showPassword, setShowPassword] = useState(false);
@@ -33,7 +33,7 @@ const Login = () => {
         <h1 className="mb-4">Login Now</h1>
         <p className="mb-4">Hi, Welcome back 👋</p>
 
-        <GoogleLoginButton onClick={() => console.log("Google login clicked")} />
+        <GoogleLoginButton />
 
         <div className="text-center w-100 mb-3" style={{ fontSize: "0.9rem", color: "#666" }}>
           ─────── or Login with Email ───────

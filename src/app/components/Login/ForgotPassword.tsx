@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { resetPassword } from "@/app/utils/authForgotPassword";
+import { resetPassword } from "@/app/utils/authFirebase/authForgotPassword";
 
 const ForgotPassword = () => {
   const [email, setEmail] = useState("");

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { registerWithEmail } from "@/app/utils/authRegisterWithEmail"; // Đảm bảo import đúng từ file của bạn
+import { registerWithEmail } from "@/app/utils/authFirebase/authRegisterWithEmail"; // Đảm bảo import đúng từ file của bạn
 
 const RegisterPassword = () => {
   // Định nghĩa state cho email
