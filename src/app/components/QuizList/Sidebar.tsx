@@ -1,12 +1,29 @@
 "use client";
-import { FC } from "react";
-import useUserEmail from "@/app/hooks/useUserEmail";
+import { FC, useEffect, useState } from "react";
 import Link from "next/link";
-import { linkHover } from '@/app/utils/hoverEffects'
+import { linkHover } from "@/app/utils/hoverEffects";
 import { QuizListProps } from "@/app/types/quizList";
+import useUserEmail from "@/app/hooks/useUserEmail";
+import { getUserRoleByEmail } from "@/app/utils/firestore/getUserRoleByEmail";
 
-const Sidebar:FC<QuizListProps> = ({ setSelectedQuiz }) => {
-  const userEmail = useUserEmail();
+const Sidebar: FC<QuizListProps> = ({ setSelectedQuiz }) => {
+  const UserEmail = useUserEmail();
+  const [role, setRole] = useState<string | null>(null);
+
+  useEffect(() => {
+    const fetchRole = async () => {
+      if (UserEmail) {
+        const { role, error } = await getUserRoleByEmail(UserEmail);
+        if (role) {
+          setRole(role);
+        } else {
+          console.error("Lỗi khi lấy role:", error);
+        }
+      }
+    };
+
+    fetchRole();
+  }, [UserEmail]);
 
   return (
     <div className="d-flex">
@@ -41,38 +58,38 @@ const Sidebar:FC<QuizListProps> = ({ setSelectedQuiz }) => {
           >
             <i className="bi bi-person-circle me-2"></i> Profile
           </Link>
-          {userEmail === "longmyngoc2004@gmail.com" && (
+
+          {role === "admin" && (
             <>
-          <Link
-            href="#"
-            onClick={() => setSelectedQuiz(null)}
-            className="list-group-item list-group-item-action bg-transparent text-white d-flex align-items-center fs-4"
-            onMouseEnter={(e) => linkHover(e, "in")}
-            onMouseLeave={(e) => linkHover(e, "out")}
-          >
-            <i className="bi bi-gear-fill me-2"></i> Settings
-          </Link>
-          <Link
-          href="#"
-          onClick={() => setSelectedQuiz(null)}
-          className="list-group-item list-group-item-action bg-transparent text-white d-flex align-items-center fs-4"
-          onMouseEnter={(e) => linkHover(e, "in")}
-          onMouseLeave={(e) => linkHover(e, "out")}
-        >
-          <i className="bi bi-plus-circle me-2"></i> Exam
-        </Link>
-        <Link
-          href="#"
-          onClick={() => setSelectedQuiz(null)}
-          className="list-group-item list-group-item-action bg-transparent text-white d-flex align-items-center fs-4"
-          onMouseEnter={(e) => linkHover(e, "in")}
-          onMouseLeave={(e) => linkHover(e, "out")}
-        >
-          <i className="bi bi-plus-circle me-2"></i> Quiz
-        </Link>
-        </>
+              <Link
+                href="/pages/Account"
+                onClick={() => setSelectedQuiz(null)}
+                className="list-group-item list-group-item-action bg-transparent text-white d-flex align-items-center fs-4"
+                onMouseEnter={(e) => linkHover(e, "in")}
+                onMouseLeave={(e) => linkHover(e, "out")}
+              >
+                <i className="bi bi-gear-fill me-2"></i> Accounts
+              </Link>
+              <Link
+                href="#"
+                onClick={() => setSelectedQuiz(null)}
+                className="list-group-item list-group-item-action bg-transparent text-white d-flex align-items-center fs-4"
+                onMouseEnter={(e) => linkHover(e, "in")}
+                onMouseLeave={(e) => linkHover(e, "out")}
+              >
+                <i className="bi bi-plus-circle me-2"></i> Exam
+              </Link>
+              <Link
+                href="#"
+                onClick={() => setSelectedQuiz(null)}
+                className="list-group-item list-group-item-action bg-transparent text-white d-flex align-items-center fs-4"
+                onMouseEnter={(e) => linkHover(e, "in")}
+                onMouseLeave={(e) => linkHover(e, "out")}
+              >
+                <i className="bi bi-plus-circle me-2"></i> Quiz
+              </Link>
+            </>
           )}
-          <div></div>
         </div>
       </div>
     </div>
