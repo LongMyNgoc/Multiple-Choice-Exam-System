@@ -22,7 +22,7 @@ const Navbar = () => {
           </Link>
 
         <div className="d-flex gap-4 align-items-center">
-          <span className="text-light">📧: longmyngoc2004@gmail.com</span>
+          <span className="text-light">📧: nguyenphilong.dev@gmail.com</span>
           <span className="text-light">📞: 0363291823</span>
           <span className="text-light">🐙: https://github.com/LongMyNgoc</span>
         </div>

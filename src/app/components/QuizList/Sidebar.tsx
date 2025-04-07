@@ -1,10 +1,13 @@
 "use client";
 import { FC } from "react";
+import useUserEmail from "@/app/hooks/useUserEmail";
 import Link from "next/link";
 import { linkHover } from '@/app/utils/hoverEffects'
 import { QuizListProps } from "@/app/types/quizList";
 
 const Sidebar:FC<QuizListProps> = ({ setSelectedQuiz }) => {
+  const userEmail = useUserEmail();
+
   return (
     <div className="d-flex">
       <div
@@ -30,31 +33,46 @@ const Sidebar:FC<QuizListProps> = ({ setSelectedQuiz }) => {
           </Link>
 
           <Link
-            href="/profile"
+            href="/pages/Profile"
+            onClick={() => setSelectedQuiz(null)}
             className="list-group-item list-group-item-action bg-transparent text-white d-flex align-items-center fs-4"
             onMouseEnter={(e) => linkHover(e, "in")}
             onMouseLeave={(e) => linkHover(e, "out")}
           >
             <i className="bi bi-person-circle me-2"></i> Profile
           </Link>
-
+          {userEmail === "longmyngoc2004@gmail.com" && (
+            <>
           <Link
-            href="/contact"
-            className="list-group-item list-group-item-action bg-transparent text-white d-flex align-items-center fs-4"
-            onMouseEnter={(e) => linkHover(e, "in")}
-            onMouseLeave={(e) => linkHover(e, "out")}
-          >
-            <i className="bi bi-envelope-fill me-2"></i> Contact
-          </Link>
-
-          <Link
-            href="/settings"
+            href="#"
+            onClick={() => setSelectedQuiz(null)}
             className="list-group-item list-group-item-action bg-transparent text-white d-flex align-items-center fs-4"
             onMouseEnter={(e) => linkHover(e, "in")}
             onMouseLeave={(e) => linkHover(e, "out")}
           >
             <i className="bi bi-gear-fill me-2"></i> Settings
           </Link>
+          <Link
+          href="#"
+          onClick={() => setSelectedQuiz(null)}
+          className="list-group-item list-group-item-action bg-transparent text-white d-flex align-items-center fs-4"
+          onMouseEnter={(e) => linkHover(e, "in")}
+          onMouseLeave={(e) => linkHover(e, "out")}
+        >
+          <i className="bi bi-plus-circle me-2"></i> Exam
+        </Link>
+        <Link
+          href="#"
+          onClick={() => setSelectedQuiz(null)}
+          className="list-group-item list-group-item-action bg-transparent text-white d-flex align-items-center fs-4"
+          onMouseEnter={(e) => linkHover(e, "in")}
+          onMouseLeave={(e) => linkHover(e, "out")}
+        >
+          <i className="bi bi-plus-circle me-2"></i> Quiz
+        </Link>
+        </>
+          )}
+          <div></div>
         </div>
       </div>
     </div>
