@@ -2,11 +2,7 @@
 
 import { FC } from "react";
 import ForgotPassword from "./ForgotPassword";
-
-interface ForgotPasswordModalProps {
-  show: boolean;
-  onClose: () => void;
-}
+import { ForgotPasswordModalProps } from "@/app/types/password";
 
 const ForgotPasswordModal: FC<ForgotPasswordModalProps> = ({ show, onClose }) => {
   return (

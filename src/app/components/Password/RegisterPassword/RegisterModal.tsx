@@ -2,11 +2,7 @@
 
 import { FC } from "react";
 import RegisterPassword from "./RegisterPassword";
-
-interface RegisterModalProps {
-  show: boolean;
-  onClose: () => void;
-}
+import { RegisterModalProps } from "@/app/types/password";
 
 const RegisterModal: FC<RegisterModalProps> = ({ show, onClose }) => {
   return (

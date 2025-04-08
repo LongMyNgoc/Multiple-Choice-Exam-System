@@ -2,6 +2,7 @@
 import { useState } from "react";
 import Topbar from "@/app/components/QuizList/Topbar";
 import Sidebar from "@/app/components/QuizList/Sidebar";
+import CreateExam from "@/app/components/Quiz/CreateExam";
 
 const QuizListPage = () => {
   const [selectedQuiz, setSelectedQuiz] = useState<string | null>(null);
@@ -18,7 +19,7 @@ const QuizListPage = () => {
 
         {/* Vùng hiển thị QuizList */}
         <div className="flex-grow-1 p-3 ">
-          
+          <CreateExam />
         </div>
       </div>
     </div>

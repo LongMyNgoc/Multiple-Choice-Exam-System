@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import { QuizCardProps } from "@/app/types/quiz";
+import { QuizCardProps } from "@/app/types/quizList";
 
 const QuizCard: React.FC<QuizCardProps> = ({ image, title, onClick }) => {
   return (

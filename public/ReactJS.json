@@ -1,0 +1,112 @@
+{
+    "title": "Đề luyện tập ReactJS căn bản",
+    "startAt": "2025-04-08T20:00",
+    "questions": [
+      {
+        "question": "React là gì?",
+        "options": ["Thư viện JavaScript", "Framework CSS", "Trình duyệt", "Ngôn ngữ lập trình"],
+        "correctAnswer": 0
+      },
+      {
+        "question": "Ai là người phát triển React?",
+        "options": ["Google", "Microsoft", "Facebook", "Amazon"],
+        "correctAnswer": 2
+      },
+      {
+        "question": "Lệnh nào được dùng để tạo project React mới?",
+        "options": ["npm create react-app", "npx create-react-app", "npm install react", "react new app"],
+        "correctAnswer": 1
+      },
+      {
+        "question": "Thành phần nào trong React dùng để hiển thị giao diện?",
+        "options": ["Component", "State", "Props", "Hook"],
+        "correctAnswer": 0
+      },
+      {
+        "question": "Props dùng để?",
+        "options": ["Lưu trạng thái nội bộ", "Truyền dữ liệu từ cha xuống con", "Gọi API", "Tạo vòng lặp"],
+        "correctAnswer": 1
+      },
+      {
+        "question": "Hook nào dùng để lưu trạng thái trong component functional?",
+        "options": ["useProps", "useEffect", "useState", "useRef"],
+        "correctAnswer": 2
+      },
+      {
+        "question": "Hook nào được sử dụng để thực hiện hiệu ứng phụ như gọi API?",
+        "options": ["useAPI", "useState", "useEffect", "useCallback"],
+        "correctAnswer": 2
+      },
+      {
+        "question": "DOM ảo trong React gọi là gì?",
+        "options": ["Virtual DOM", "Fake DOM", "React DOM", "Shadow DOM"],
+        "correctAnswer": 0
+      },
+      {
+        "question": "JSX là gì?",
+        "options": ["Ngôn ngữ mới", "Cấu trúc HTML trong JS", "Cấu trúc JS trong HTML", "CSS nâng cao"],
+        "correctAnswer": 1
+      },
+      {
+        "question": "Câu nào đúng về `useEffect`?",
+        "options": [
+          "Chỉ chạy 1 lần khi render",
+          "Chạy mỗi lần có thay đổi state/props phù hợp",
+          "Chạy mỗi lần setTimeout",
+          "Không dùng cho fetch dữ liệu"
+        ],
+        "correctAnswer": 1
+      },
+      {
+        "question": "Câu lệnh nào render ra một list từ mảng?",
+        "options": ["forEach", "map", "reduce", "filter"],
+        "correctAnswer": 1
+      },
+      {
+        "question": "Mỗi phần tử trong list khi render cần có gì?",
+        "options": ["value", "key", "id", "name"],
+        "correctAnswer": 1
+      },
+      {
+        "question": "Đâu là cách đúng để truyền props?",
+        "options": ["<Comp name='John' />", "<Comp.name='John' />", "<Comp>name='John'</Comp>", "<Comp name:John />"],
+        "correctAnswer": 0
+      },
+      {
+        "question": "Điều kiện render trong JSX thường dùng gì?",
+        "options": ["if/else", "switch", "&& hoặc ? :", "loop"],
+        "correctAnswer": 2
+      },
+      {
+        "question": "State trong React có thể cập nhật trực tiếp không?",
+        "options": ["Có", "Không", "Chỉ khi dùng props", "Chỉ khi dùng DOM"],
+        "correctAnswer": 1
+      },
+      {
+        "question": "Hook nào giữ lại giá trị sau mỗi lần render nhưng không gây re-render?",
+        "options": ["useState", "useEffect", "useMemo", "useRef"],
+        "correctAnswer": 3
+      },
+      {
+        "question": "React Router dùng để làm gì?",
+        "options": ["Tạo hiệu ứng", "Tạo route chuyển trang", "Gọi API", "Chạy CSS"],
+        "correctAnswer": 1
+      },
+      {
+        "question": "useMemo dùng để?",
+        "options": ["Tối ưu hiệu năng bằng cách ghi nhớ giá trị", "Tạo state mới", "Ghi nhớ DOM", "Truyền props"],
+        "correctAnswer": 0
+      },
+      {
+        "question": "useCallback dùng để?",
+        "options": ["Tối ưu hàm callback", "Gọi API", "Tạo DOM", "Tạo CSS"],
+        "correctAnswer": 0
+      },
+      {
+        "question": "Khi dùng form trong React, nên dùng?",
+        "options": ["DOM trực tiếp", "State", "window.prompt", "Ref"],
+        "correctAnswer": 1
+      }
+    ]
+  }
+  

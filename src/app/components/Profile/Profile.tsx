@@ -3,7 +3,7 @@
 import useUserEmail from "@/app/hooks/useUserEmail";
 import { FaUserCircle, FaLock } from "react-icons/fa";
 import { useState } from "react";
-import ChangePasswordModal from "../Password/ChangePasswordModal"; // Đảm bảo đường dẫn đúng
+import ChangePasswordModal from "../Password/ChangePassword/ChangePasswordModal"; // Đảm bảo đường dẫn đúng
 
 const Profile = () => {
   const userEmail = useUserEmail();
