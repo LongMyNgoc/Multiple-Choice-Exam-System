@@ -18,7 +18,7 @@ const QuizListPage = () => {
         <Sidebar setSelectedQuiz={setSelectedQuiz}/>
 
         {/* Vùng hiển thị QuizList */}
-        <div className="flex-grow-1 p-3">
+        <div className="flex-grow-1 p-3 ">
           <Profile />
         </div>
       </div>

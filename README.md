@@ -1,4 +1,8 @@
 # Multiple Choice Exam System (FRONT-END)
+<p align="center">
+  <img src="public/assets/Home.png" alt="Home" width="100%" style="display: block; margin-bottom: 20px;">
+  <img src="public/assets/Dashboard.png" alt="Dashboard" width="100%" style="display: block;">
+</p>
 
 ## Giới Thiệu
 **Multiple Choice Exam System** là một nền tảng hỗ trợ đánh giá và kiểm tra kiến thức của sinh viên thông qua hình thức thi trắc nghiệm trực tuyến. Hệ thống cho phép người dùng tham gia thi, quản lý câu hỏi, theo dõi kết quả, và hỗ trợ xác thực người dùng.
