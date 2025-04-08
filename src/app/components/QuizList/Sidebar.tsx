@@ -58,6 +58,15 @@ const Sidebar: FC<QuizListProps> = ({ setSelectedQuiz }) => {
           >
             <i className="bi bi-person-circle me-2"></i> Profile
           </Link>
+          <Link
+                href="/pages/Exam"
+                onClick={() => setSelectedQuiz(null)}
+                className="list-group-item list-group-item-action bg-transparent text-white d-flex align-items-center fs-4"
+                onMouseEnter={(e) => linkHover(e, "in")}
+                onMouseLeave={(e) => linkHover(e, "out")}
+              >
+                <i className="bi bi-plus-circle me-2"></i> Exam
+              </Link>
 
           {role === "admin" && (
             <>
@@ -71,16 +80,7 @@ const Sidebar: FC<QuizListProps> = ({ setSelectedQuiz }) => {
                 <i className="bi bi-gear-fill me-2"></i> Accounts
               </Link>
               <Link
-                href="#"
-                onClick={() => setSelectedQuiz(null)}
-                className="list-group-item list-group-item-action bg-transparent text-white d-flex align-items-center fs-4"
-                onMouseEnter={(e) => linkHover(e, "in")}
-                onMouseLeave={(e) => linkHover(e, "out")}
-              >
-                <i className="bi bi-plus-circle me-2"></i> Exam
-              </Link>
-              <Link
-                href="#"
+                href="/pages/Quiz"
                 onClick={() => setSelectedQuiz(null)}
                 className="list-group-item list-group-item-action bg-transparent text-white d-flex align-items-center fs-4"
                 onMouseEnter={(e) => linkHover(e, "in")}
