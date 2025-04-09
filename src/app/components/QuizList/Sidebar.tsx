@@ -2,7 +2,7 @@
 import { FC, useEffect, useState } from "react";
 import Link from "next/link";
 import { linkHover } from "@/app/utils/hoverEffects";
-import { QuizListProps } from "@/app/types/quizList";
+import { QuizListProps } from "@/app/types/quizList"; 
 import useUserEmail from "@/app/hooks/useUserEmail";
 import { getUserRoleByEmail } from "@/app/utils/firestore/getUserRoleByEmail";
 

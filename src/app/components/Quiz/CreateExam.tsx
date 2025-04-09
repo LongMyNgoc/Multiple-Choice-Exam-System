@@ -1,7 +1,9 @@
 "use client";
 import { useState } from "react";
+import { toast } from "react-toastify";
 import QuestionForm from "./QuestionForm";
-import { Question } from "@/app/types/quiz"; // hoặc bạn có thể khai báo trực tiếp phía trên
+import ExamForm from "./ExamForm";
+import { Question } from "@/app/types/quiz";
 
 const CreateExam = () => {
   const [examTitle, setExamTitle] = useState<string>("");
@@ -20,102 +22,73 @@ const CreateExam = () => {
     setQuestions(newQuestions);
   };
 
-  const handleSubmit = () => {
-    if (!examTitle.trim()) {
-      alert("Vui lòng nhập tên bộ đề!");
-      return;
-    }
-  
-    if (!startAt) {
-      alert("Vui lòng chọn thời gian mở đề!");
-      return;
-    }
-
+  const handleSubmit = async () => {
+    if (!examTitle.trim()) return toast.error("Vui lòng nhập tên bộ đề!");
+    if (!startAt) return toast.error("Vui lòng chọn thời gian mở đề!");
     const startTime = new Date(startAt);
-const now = new Date();
-
-if (startTime < now) {
-  alert("Thời gian mở đề không được nằm trong quá khứ!");
-  return;
-}
+    const now = new Date();
+    if (startTime < now) return toast.error("Thời gian mở đề không được nằm trong quá khứ!");
   
     const isValid = questions.every(
-      (q) => q.question.trim() !== "" && q.options.every((opt) => opt.trim() !== "")
+      (q) => q.question.trim() && q.options.every((opt) => opt.trim())
     );
-  
-    if (!isValid) {
-      alert("Vui lòng điền đầy đủ thông tin cho tất cả các câu hỏi!");
-      return;
-    }
+    if (!isValid) return toast.error("Vui lòng điền đầy đủ thông tin cho tất cả các câu hỏi!");
   
     const examData = {
       title: examTitle,
-      startAt: new Date(startAt).toISOString(), // 🔥 thêm dòng này
-      questions: questions,
+      startAt: new Date(startAt).toISOString(),
       createdAt: new Date().toISOString(),
+      questions,
     };
   
-    console.log("Exam Submitted:", examData);
-    alert("Đã tạo bộ đề thành công!");
+    try {
+      const res = await fetch("http://localhost:3001/exams", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(examData),
+      });
   
-    // TODO: gửi examData lên backend hoặc Firestore
+      if (!res.ok) throw new Error("Không thể tạo bộ đề!");
+  
+      toast.success("Đã tạo bộ đề thành công!");
+    } catch (err) {
+      toast.error("Lỗi khi gửi dữ liệu lên server!");
+    }
   };  
+
   const handleFileImport = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (!file) return;
-  
+
     const text = await file.text();
     try {
       const parsed = JSON.parse(text);
-  
+
       if (!parsed.title || !parsed.startAt || !Array.isArray(parsed.questions)) {
-        alert("File JSON không đúng định dạng!");
+        toast.error("File JSON không đúng định dạng!");
         return;
       }
-  
+
       setExamTitle(parsed.title);
       setStartAt(parsed.startAt);
       setQuestions(parsed.questions);
+      toast.success("Đã nhập dữ liệu từ file JSON thành công!");
     } catch (err) {
-      alert("Đã xảy ra lỗi khi đọc file JSON.");
+      toast.error("Đã xảy ra lỗi khi đọc file JSON.");
     }
-  };  
+  };
 
   return (
     <div className="container mt-4">
       <h2 className="mb-4">Tạo bộ đề thi trắc nghiệm (20 câu)</h2>
 
-      <div className="mb-4">
-        <label className="form-label">Tên bộ đề:</label>
-        <input
-          type="text"
-          className="form-control"
-          placeholder="Nhập tên bộ đề..."
-          value={examTitle}
-          onChange={(e) => setExamTitle(e.target.value)}
-        />
-      </div>
-
-      <div className="mb-4">
-  <label className="form-label">Thời gian mở đề:</label>
-  <input
-    type="datetime-local"
-    className="form-control"
-    value={startAt}
-    onChange={(e) => setStartAt(e.target.value)}
-  />
-</div>
-
-<div className="mb-4">
-  <label className="form-label">Import đề từ file JSON:</label>
-  <input
-    type="file"
-    accept=".json"
-    className="form-control"
-    onChange={(e) => handleFileImport(e)}
-  />
-</div>
-
+      <ExamForm
+        examTitle={examTitle}
+        setExamTitle={setExamTitle}
+        startAt={startAt}
+        setStartAt={setStartAt}
+        handleFileImport={handleFileImport}
+      />
 
       {questions.map((q, idx) => (
         <QuestionForm
