@@ -12,9 +12,8 @@
 - **Quản lý bài thi**: Tạo, chỉnh sửa và xóa bài thi trắc nghiệm.
 - **Làm bài thi**: Sinh viên có thể tham gia bài thi, trả lời câu hỏi, và nộp bài.
 - **Chấm điểm tự động**: Hệ thống sẽ tự động tính điểm ngay sau khi bài thi được nộp.
-- **Xem kết quả & Lịch sử thi**: Sinh viên có thể xem lại kết quả và lịch sử thi của mình.
+- **Xem kết quả thi**: Sinh viên có thể xem lại kết quả và lịch sử thi của mình.
 - **Quản lý câu hỏi**: Giảng viên có thể tạo bộ câu hỏi và chỉnh sửa nội dung câu hỏi.
-- **Báo cáo & Thống kê**: Hệ thống cung cấp báo cáo về kết quả thi của sinh viên và phân tích xu hướng điểm số.
 
 ## Công Nghệ Sử Dụng
 - **Firebase Firestore**: Lưu trữ dữ liệu người dùng và kết quả học tập.
@@ -48,8 +47,8 @@ npm run dev
 Sau khi chạy, hệ thống sẽ khởi động tại `http://localhost:3000`.
 
 ## Liên Kết Hệ Thống
-- **Back-End (GitHub)**: 
-- **Back-End (Render)**: 
+- **Back-End (GitHub)**: [Multiple-Choice-Exam-System-BE](https://github.com/LongMyNgoc/Multiple-Choice-Exam-System-BE.git)
+- **Back-End (Railway)**: 
 - **Front-End (GitHub)**: [Multiple-Choice-Exam-System](https://github.com/LongMyNgoc/Multiple-Choice-Exam-System.git)
 - **Front-End (Vercel)**: [Xem website](https://multiple-choice-eta.vercel.app/)
 
@@ -66,4 +65,3 @@ Mọi ý kiến đóng góp hoặc báo lỗi có thể được gửi qua hệ 
 ## Thông Tin Liên Hệ
 📧 Email: nguyenphilong.dev@gmail.com <br>
 📌 GitHub: [LongMyNgoc](https://github.com/LongMyNgoc) <br>
-📌 Vercel Deployment: [Multiple-Choice-Exam-System](https://multiple-choice-eta.vercel.app/)

@@ -1,0 +1,107 @@
+{
+    "title": "Đề luyện tập Unreal Engine căn bản",
+    "startAt": "2025-04-09T20:00",
+    "questions": [
+      {
+        "question": "Unreal Engine được phát triển bởi công ty nào?",
+        "options": ["Unity Technologies", "Epic Games", "Valve", "Crytek"],
+        "correctAnswer": 1
+      },
+      {
+        "question": "Ngôn ngữ lập trình chính trong Unreal Engine là gì?",
+        "options": ["Java", "C#", "C++", "Python"],
+        "correctAnswer": 2
+      },
+      {
+        "question": "Blueprint trong Unreal Engine là gì?",
+        "options": ["Ngôn ngữ lập trình mới", "Công cụ lập trình trực quan", "API ngoài", "Game framework"],
+        "correctAnswer": 1
+      },
+      {
+        "question": "Unreal Engine sử dụng hệ thống vật lý nào?",
+        "options": ["PhysX", "Bullet", "Chaos Physics", "Box2D"],
+        "correctAnswer": 2
+      },
+      {
+        "question": "Định dạng file project của Unreal Engine là gì?",
+        "options": [".uproject", ".unity", ".ue", ".unproj"],
+        "correctAnswer": 0
+      },
+      {
+        "question": "Lệnh để build project trong Unreal là?",
+        "options": ["BuildProject.exe", "UEBuildTool", "UnrealBuildTool", "Compile.exe"],
+        "correctAnswer": 2
+      },
+      {
+        "question": "Actor trong Unreal là gì?",
+        "options": ["Đối tượng trong cảnh", "Nhân vật chính", "Script chính", "Asset động"],
+        "correctAnswer": 0
+      },
+      {
+        "question": "Component là gì trong Unreal?",
+        "options": ["Tập lệnh", "Phần mở rộng Editor", "Phần tử tạo nên Actor", "Animation"],
+        "correctAnswer": 2
+      },
+      {
+        "question": "Level Blueprint là gì?",
+        "options": ["Script riêng cho Level", "Map", "Data Table", "UI HUD"],
+        "correctAnswer": 0
+      },
+      {
+        "question": "Unreal Engine hỗ trợ render đồ họa theo công nghệ nào?",
+        "options": ["DirectX", "OpenGL", "Vulkan", "Tất cả đều đúng"],
+        "correctAnswer": 3
+      },
+      {
+        "question": "Material Editor dùng để?",
+        "options": ["Tạo nhân vật", "Chỉnh sửa mã", "Tạo texture vật liệu", "Lập trình logic game"],
+        "correctAnswer": 2
+      },
+      {
+        "question": "HUD thường dùng để?",
+        "options": ["Render nhân vật", "Tạo bản đồ", "Hiển thị giao diện người dùng", "Load project"],
+        "correctAnswer": 2
+      },
+      {
+        "question": "Unreal Engine hỗ trợ VR/AR không?",
+        "options": ["Không", "Chỉ VR", "Chỉ AR", "Có, hỗ trợ cả VR và AR"],
+        "correctAnswer": 3
+      },
+      {
+        "question": "Đâu là tính năng nổi bật của Unreal Engine 5?",
+        "options": ["Blueprint", "Nanite & Lumen", "Unity Integration", "CryEngine Mode"],
+        "correctAnswer": 1
+      },
+      {
+        "question": "Lumen là gì trong Unreal 5?",
+        "options": ["Hệ thống âm thanh", "Tính năng lập trình", "Hệ thống ánh sáng động", "Đơn vị đo lường ánh sáng"],
+        "correctAnswer": 2
+      },
+      {
+        "question": "Nanite dùng để làm gì?",
+        "options": ["Tối ưu ánh sáng", "Render mesh chi tiết cao", "AI", "UI layout"],
+        "correctAnswer": 1
+      },
+      {
+        "question": "Game Mode trong Unreal là gì?",
+        "options": ["Quản lý gameplay tổng thể", "Quản lý UI", "Bộ lọc ánh sáng", "Định nghĩa AI"],
+        "correctAnswer": 0
+      },
+      {
+        "question": "Pawn là gì?",
+        "options": ["AI", "Người chơi", "Di chuyển điều khiển được", "Data lưu trữ"],
+        "correctAnswer": 2
+      },
+      {
+        "question": "Controller trong Unreal dùng để?",
+        "options": ["Điều khiển AI hoặc người chơi", "Load level", "Render hiệu ứng", "Tạo UI"],
+        "correctAnswer": 0
+      },
+      {
+        "question": "Tick function trong Actor dùng để?",
+        "options": ["Gọi một lần khi tạo", "Gọi khi mở game", "Gọi mỗi frame", "Không dùng nữa"],
+        "correctAnswer": 2
+      }
+    ]
+  }
+  

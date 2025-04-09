@@ -5,3 +5,28 @@ export type ExamFormProps = {
   setStartAt: (value: string) => void;
   handleFileImport: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
+
+export interface Question {
+  question: string;
+  options: string[];
+  correctAnswer: number;
+}
+
+export interface ExamType {
+  _id: string;
+  title: string;
+  startAt: string;
+  createdAt: string;
+  questions: Question[];
+}
+
+export type ExamViewerProps = {
+  exam: ExamType;
+  onBack: () => void;
+};
+
+export type ExamStatus = "Đang diễn ra" | "Sắp diễn ra" | "Đã kết thúc";
+
+export type ExamWithStatus = ExamType & {
+  status: ExamStatus;
+};
