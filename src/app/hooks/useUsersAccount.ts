@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 
 export const roleOptions = ["all", "user", "admin"];
 
-export const useUsers = () => {
+export const useUsersAccount = () => {
   const [users, setUsers] = useState<any[]>([]);
   const [filteredUsers, setFilteredUsers] = useState<any[]>([]);
   const [searchEmail, setSearchEmail] = useState("");

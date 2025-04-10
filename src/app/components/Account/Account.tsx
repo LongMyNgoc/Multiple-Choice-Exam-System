@@ -1,5 +1,5 @@
 "use client";
-import { useUsers, roleOptions } from "@/app/hooks/useUsers";
+import { useUsersAccount, roleOptions } from "@/app/hooks/useUsersAccount";
 
 const Account = () => {
   const {
@@ -10,7 +10,7 @@ const Account = () => {
     setSearchEmail,
     setFilterRole,
     handleRoleChange,
-  } = useUsers();
+  } = useUsersAccount();
 
   return (
     <div className="container mt-4">

@@ -22,7 +22,6 @@ export interface ExamType {
 
 export type ExamViewerProps = {
   exam: ExamType;
-  onBack: () => void;
 };
 
 export type ExamStatus = "Đang diễn ra" | "Sắp diễn ra" | "Đã kết thúc";

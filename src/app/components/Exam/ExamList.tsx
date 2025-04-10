@@ -1,60 +1,13 @@
 "use client";
 
-import { useEffect, useState } from "react";
-import { ExamType } from "@/app/types/exam";
+import { useState } from "react";
+import { ExamWithStatus } from "@/app/types/exam";
 import ExamViewer from "./ExamViewer";
-import dayjs from "dayjs";
-import { ExamStatus, ExamWithStatus } from "@/app/types/exam";
-
-const getExamStatus = (startAt: string): ExamStatus => {
-  const now = dayjs();
-  const start = dayjs(startAt);
-  const end = start.add(1, "hour");
-
-  if (now.isBefore(start)) return "Sắp diễn ra";
-  if (now.isAfter(end)) return "Đã kết thúc";
-  return "Đang diễn ra";
-};
+import useExamList from "@/app/hooks/useExamList";
 
 const ExamList = () => {
-  const [exams, setExams] = useState<ExamWithStatus[]>([]);
+  const { exams, isClickable } = useExamList();
   const [selectedExam, setSelectedExam] = useState<ExamWithStatus | null>(null);
-
-  useEffect(() => {
-    const fetchExams = async () => {
-      try {
-        const res = await fetch("http://localhost:3001/exams/all");
-        const data: ExamType[] = await res.json();
-
-        const examsWithStatus: ExamWithStatus[] = data.map((exam) => ({
-          ...exam,
-          status: getExamStatus(exam.startAt),
-        }));
-
-        const sortedExams = examsWithStatus.sort((a, b) => {
-          const priority: Record<ExamStatus, number> = {
-            "Đang diễn ra": 0,
-            "Sắp diễn ra": 1,
-            "Đã kết thúc": 2,
-          };
-          return priority[a.status] - priority[b.status];
-        });
-
-        setExams(sortedExams);
-      } catch (error) {
-        console.error("Lỗi khi lấy danh sách đề thi:", error);
-      }
-    };
-
-    fetchExams();
-  }, []);
-
-  const isClickable = (exam: ExamWithStatus) => {
-    const now = dayjs();
-    const start = dayjs(exam.startAt);
-    const end = start.add(1, "hour");
-    return now.isAfter(start) && now.isBefore(end);
-  };
 
   return (
     <div className="p-4">
@@ -94,7 +47,15 @@ const ExamList = () => {
           })}
         </ul>
       ) : (
-        <ExamViewer exam={selectedExam} onBack={() => setSelectedExam(null)} />
+        <>
+        <button
+        onClick={()=> setSelectedExam(null)}
+        className="mb-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+      >
+        ← Quay lại
+      </button>
+        <ExamViewer exam={selectedExam} />
+          </>
       )}
     </div>
   );
