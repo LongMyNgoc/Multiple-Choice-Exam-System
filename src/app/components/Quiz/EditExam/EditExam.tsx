@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Question } from "@/app/types/exam";
 import QuestionEditor from "./QuestionEditor";
 import { EditExamProps } from "@/app/types/exam";
+import { toast } from "react-toastify";
+import { useEditExam } from "@/app/hooks/useEditExam";
 
 const EditExam: React.FC<EditExamProps> = ({ exam, onClose }) => {
   const [title, setTitle] = useState(exam.title);
@@ -18,24 +20,13 @@ const EditExam: React.FC<EditExamProps> = ({ exam, onClose }) => {
     setQuestions(updatedQuestions);
   };
 
-  const handleSave = () => {
-    const updatedExam = {
-      ...exam,
-      title,
-      startAt,
-      questions,
-    };
-    console.log("📝 Đề đã chỉnh sửa:", updatedExam);
-    // Gọi API cập nhật ở đây nếu cần
-  };
-
-  const handleDelete = () => {
-    if (confirm("Bạn có chắc chắn muốn xóa đề này không?")) {
-      console.log("🗑️ Đề đã bị xóa:", exam.title);
-      // Gọi API xóa nếu cần
-      onClose(); // Đóng sau khi xóa
-    }
-  };
+  const { handleSave, handleDelete } = useEditExam(
+    exam._id,
+    title,
+    startAt,
+    questions,
+    onClose
+  );
 
   return (
     <div className="card p-4">
