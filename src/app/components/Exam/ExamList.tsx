@@ -21,23 +21,35 @@ const ExamList = () => {
             return (
               <li
                 key={exam._id}
-                className={`border rounded-lg p-4 shadow transition ${
-                  clickable
+                className={`border rounded-lg p-4 shadow transition ${clickable
                     ? "cursor-pointer hover:shadow-md hover:bg-gray-100"
                     : "opacity-50 cursor-not-allowed"
-                }`}
+                  }`}
                 onClick={() => clickable && setSelectedExam(exam)}
               >
                 <div className="flex justify-between items-center">
-                  <h3 className="text-xl font-semibold">{exam.title}</h3>
+                  <div>
+                    <h3 className="text-xl font-semibold">{exam.title}</h3>
+                    <small className="text-gray-600">
+                      Bắt đầu:{" "}
+                      {new Date(exam.startAt).toLocaleString("vi-VN", {
+                        timeZone: "Asia/Ho_Chi_Minh",
+                        hour: "2-digit",
+                        minute: "2-digit",
+                        second: "2-digit",
+                        day: "2-digit",
+                        month: "2-digit",
+                        year: "numeric",
+                      })}
+                    </small>
+                  </div>
                   <span
-                    className={`text-sm px-2 py-1 rounded ${
-                      exam.status === "Đang diễn ra"
+                    className={`text-sm px-2 py-1 rounded ${exam.status === "Đang diễn ra"
                         ? "bg-green-100 text-green-700"
                         : exam.status === "Sắp diễn ra"
-                        ? "bg-yellow-100 text-yellow-700"
-                        : "bg-red-100 text-red-700"
-                    }`}
+                          ? "bg-yellow-100 text-yellow-700"
+                          : "bg-red-100 text-red-700"
+                      }`}
                   >
                     {exam.status}
                   </span>
@@ -48,14 +60,14 @@ const ExamList = () => {
         </ul>
       ) : (
         <>
-        <button
-        onClick={()=> setSelectedExam(null)}
-        className="mb-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-      >
-        ← Quay lại
-      </button>
-        <ExamViewer exam={selectedExam} />
-          </>
+          <button
+            onClick={() => setSelectedExam(null)}
+            className="mb-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
+          >
+            ← Quay lại
+          </button>
+          <ExamViewer exam={selectedExam} />
+        </>
       )}
     </div>
   );

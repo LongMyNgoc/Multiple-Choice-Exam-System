@@ -29,3 +29,13 @@ export type ExamStatus = "Đang diễn ra" | "Sắp diễn ra" | "Đã kết th�
 export type ExamWithStatus = ExamType & {
   status: ExamStatus;
 };
+
+export interface ToggleCreateExamButtonProps {
+  show: boolean;
+  onToggle: () => void;
+}
+
+export interface EditExamProps {
+  exam: ExamWithStatus;
+  onClose: () => void;
+}

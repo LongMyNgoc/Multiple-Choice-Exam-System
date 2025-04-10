@@ -1,4 +1,3 @@
-import { Question } from "@/app/types/quiz";
 import { QuestionFormProps } from "@/app/types/quiz";
 
 const QuestionForm = ({ index, data, onChange }: QuestionFormProps) => {
