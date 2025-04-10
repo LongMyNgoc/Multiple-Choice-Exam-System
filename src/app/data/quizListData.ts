@@ -21,7 +21,7 @@ export const quizListData = [
       image: "/assets/Data/CTDL_GT.jpg",
     },
     {
-      id: "pttk",
+      id: "pttkgt",
       title: "Phân tích thiết kế giải thuật",
       image: "/assets/Data/CTDL_GT.jpg",
     },

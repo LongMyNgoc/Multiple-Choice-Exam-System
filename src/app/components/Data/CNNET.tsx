@@ -1,11 +1,11 @@
 "use client";
 import { useState } from "react";
-import { quizLTCBC } from "@/app/lib/data/LTCB_C++";
+import { quizCNNET } from "@/app/lib/data/CNNET";
 import { QuizQuestion } from "@/app/types/quiz";
 
 const optionLabels = ["A", "B", "C", "D"];
 
-const LTCB_Cplusplus = () => {
+const CNNET = () => {
   const [userAnswers, setUserAnswers] = useState<{ [key: number]: string }>({});
   const [submitted, setSubmitted] = useState(false);
 
@@ -18,16 +18,16 @@ const LTCB_Cplusplus = () => {
   };
 
   const getScore = () => {
-    return quizLTCBC.reduce((score, q) => {
+    return quizCNNET.reduce((score, q) => {
       return userAnswers[q.id] === q.correctAnswer ? score + 1 : score;
     }, 0);
   };
 
   return (
     <div className="container py-5">
-      <h2 className="mb-5 fw-bold text-primary">🧠 Đề thi trắc nghiệm: Lập trình C++ cơ bản</h2>
+      <h2 className="mb-5 fw-bold text-primary">🧠 Đề thi trắc nghiệm: Công nghệ NET</h2>
 
-      {quizLTCBC.map((question: QuizQuestion) => (
+      {quizCNNET.map((question: QuizQuestion) => (
         <div key={question.id} className="card mb-4 shadow-sm">
           <div className="card-body">
             <h5 className="card-title">
@@ -76,11 +76,11 @@ const LTCB_Cplusplus = () => {
         </button>
       ) : (
         <div className="alert alert-success mt-4 fs-5 fw-bold" role="alert">
-          ✅ Bạn đã làm đúng {getScore()} / {quizLTCBC.length} câu.
+          ✅ Bạn đã làm đúng {getScore()} / {quizCNNET.length} câu.
         </div>
       )}
     </div>
   );
 };
 
-export default LTCB_Cplusplus;
+export default CNNET;

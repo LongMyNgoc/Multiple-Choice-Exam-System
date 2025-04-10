@@ -1,6 +1,6 @@
 import { QuizQuestion } from "@/app/types/quiz";
 
-export const quizLTTD: QuizQuestion[] = [
+export const quizLTDT: QuizQuestion[] = [
     {
       id: 1,
       question: "Đồ thị nào dưới đây có các đỉnh và các cạnh mà các cạnh không có hướng?",

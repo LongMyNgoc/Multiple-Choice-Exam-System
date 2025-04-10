@@ -1,29 +1,9 @@
 // components/ExamResultDetails.tsx
 import React from "react";
 import moment from "moment";
+import { ExamResultProps } from "@/app/types/examResult";
 
-interface Question {
-  question: string;
-  options: string[];
-  selectedOption: number;
-  correctAnswer: number;
-  isCorrect: boolean;
-}
-
-interface ExamResult {
-  _id: string;
-  title: string;
-  questions: Question[];
-  score: number;
-  submittedAt: string;
-}
-
-interface Props {
-  exam: ExamResult;
-  onClose?: () => void; // optional: để đóng lại
-}
-
-const ExamResultDetails: React.FC<Props> = ({ exam, onClose }) => {
+const ExamResultDetails: React.FC<ExamResultProps> = ({ exam, onClose }) => {
   return (
     <div className="mt-3 p-4 border rounded bg-light shadow-sm">
       <div className="d-flex justify-content-between align-items-center">
