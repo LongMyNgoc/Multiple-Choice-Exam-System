@@ -1,6 +1,6 @@
 import { useState } from "react";
-import CreateExam from "./CreateExam";
-import EditExam from "./EditExam";
+import CreateExam from "../CreateExam/CreateExam";
+import EditExam from "../EditExam/EditExam";
 import ExamList from "./ExamList";
 import ToggleCreateExamButton from "./ToggleCreateExamButton";
 import useExamList from "@/app/hooks/useExamList";
@@ -12,20 +12,20 @@ const Quiz = () => {
     const { exams } = useExamList();
 
     return (
-        <div style={{ position: "relative", padding: "20px" }}>
+        <div className="position-relative p-4">
             <ToggleCreateExamButton
                 show={showCreateExam}
                 onToggle={() => setShowCreateExam(prev => !prev)}
             />
 
             {showCreateExam && (
-                <div style={{ marginTop: "60px" }}>
+                <div className="mt-5">
                     <CreateExam />
                 </div>
             )}
 
             {selectedExam && (
-                <div style={{ marginTop: "60px" }}>
+                <div className="mt-5">
                     <EditExam exam={selectedExam} onClose={() => setSelectedExam(null)} />
                 </div>
             )}

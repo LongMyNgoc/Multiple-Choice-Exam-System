@@ -1,11 +1,8 @@
-"use client";
 import { useState } from "react";
 import { toast } from "react-toastify";
-import QuestionForm from "./QuestionForm";
-import ExamForm from "./ExamForm";
 import { Question } from "@/app/types/quiz";
 
-const CreateExam = () => {
+const useCreateExam = () => {
   const [examTitle, setExamTitle] = useState<string>("");
   const [startAt, setStartAt] = useState<string>("");
   const [questions, setQuestions] = useState<Question[]>(
@@ -21,40 +18,6 @@ const CreateExam = () => {
     newQuestions[index] = updatedQuestion;
     setQuestions(newQuestions);
   };
-
-  const handleSubmit = async () => {
-    if (!examTitle.trim()) return toast.error("Vui lòng nhập tên bộ đề!");
-    if (!startAt) return toast.error("Vui lòng chọn thời gian mở đề!");
-    const startTime = new Date(startAt);
-    const now = new Date();
-    if (startTime < now) return toast.error("Thời gian mở đề không được nằm trong quá khứ!");
-  
-    const isValid = questions.every(
-      (q) => q.question.trim() && q.options.every((opt) => opt.trim())
-    );
-    if (!isValid) return toast.error("Vui lòng điền đầy đủ thông tin cho tất cả các câu hỏi!");
-  
-    const examData = {
-      title: examTitle,
-      startAt: new Date(startAt).toISOString(),
-      createdAt: new Date().toISOString(),
-      questions,
-    };
-  
-    try {
-      const res = await fetch("http://localhost:3001/exams", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(examData),
-      });
-  
-      if (!res.ok) throw new Error("Không thể tạo bộ đề!");
-  
-      toast.success("Đã tạo bộ đề thành công!");
-    } catch (err) {
-      toast.error("Lỗi khi gửi dữ liệu lên server!");
-    }
-  };  
 
   const handleFileImport = async (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
@@ -78,32 +41,50 @@ const CreateExam = () => {
     }
   };
 
-  return (
-    <div className="container mt-4">
-      <h2 className="mb-4">Tạo bộ đề thi trắc nghiệm (20 câu)</h2>
+  const handleSubmit = async () => {
+    if (!examTitle.trim()) return toast.error("Vui lòng nhập tên bộ đề!");
+    if (!startAt) return toast.error("Vui lòng chọn thời gian mở đề!");
+    const startTime = new Date(startAt);
+    const now = new Date();
+    if (startTime < now) return toast.error("Thời gian mở đề không được nằm trong quá khứ!");
 
-      <ExamForm
-        examTitle={examTitle}
-        setExamTitle={setExamTitle}
-        startAt={startAt}
-        setStartAt={setStartAt}
-        handleFileImport={handleFileImport}
-      />
+    const isValid = questions.every(
+      (q) => q.question.trim() && q.options.every((opt) => opt.trim())
+    );
+    if (!isValid) return toast.error("Vui lòng điền đầy đủ thông tin cho tất cả các câu hỏi!");
 
-      {questions.map((q, idx) => (
-        <QuestionForm
-          key={idx}
-          index={idx}
-          data={q}
-          onChange={(updated) => handleQuestionChange(idx, updated)}
-        />
-      ))}
+    const examData = {
+      title: examTitle,
+      startAt: new Date(startAt).toISOString(),
+      createdAt: new Date().toISOString(),
+      questions,
+    };
 
-      <button className="btn btn-success mt-3" onClick={handleSubmit}>
-        Tạo bộ đề
-      </button>
-    </div>
-  );
+    try {
+      const res = await fetch("http://localhost:3001/exams", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(examData),
+      });
+
+      if (!res.ok) throw new Error("Không thể tạo bộ đề!");
+
+      toast.success("Đã tạo bộ đề thành công!");
+    } catch (err) {
+      toast.error("Lỗi khi gửi dữ liệu lên server!");
+    }
+  };
+
+  return {
+    examTitle,
+    setExamTitle,
+    startAt,
+    setStartAt,
+    questions,
+    handleQuestionChange,
+    handleFileImport,
+    handleSubmit,
+  };
 };
 
-export default CreateExam;
+export default useCreateExam;

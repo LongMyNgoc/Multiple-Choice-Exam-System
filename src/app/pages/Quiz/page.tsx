@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Topbar from "@/app/components/QuizList/Topbar";
 import Sidebar from "@/app/components/QuizList/Sidebar";
-import Quiz from "@/app/components/Quiz/Quiz";
+import Quiz from "@/app/components/Quiz/ExamList/Quiz";
 
 const QuizListPage = () => {
   const [selectedQuiz, setSelectedQuiz] = useState<string | null>(null);
