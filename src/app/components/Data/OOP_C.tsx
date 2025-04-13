@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { quizOOPC } from "@/app/lib/data/OOP_C++";
+import { quizOOPC } from "@/app/lib/data/OOP_C";
 import { QuizQuestion } from "@/app/types/quizData";
 
 const optionLabels = ["A", "B", "C", "D"];

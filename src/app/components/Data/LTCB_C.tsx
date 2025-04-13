@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import { quizLTCBC } from "@/app/lib/data/LTCB_C++";
+import { quizLTCBC } from "@/app/lib/data/LTCB_C";
 import { QuizQuestion } from "@/app/types/quizData";
 
 const optionLabels = ["A", "B", "C", "D"];
