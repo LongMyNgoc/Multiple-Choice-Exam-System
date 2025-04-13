@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { toast } from "react-toastify";
-import { Question } from "@/app/types/quizData";
+import { Question } from "@/app/types/question";
 
 const useCreateExam = () => {
   const [examTitle, setExamTitle] = useState<string>("");

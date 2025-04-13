@@ -1,9 +1,9 @@
 // app/hooks/useEditExam.ts
 import { useCallback } from "react";
 import { toast } from "react-toastify";
-import { Question } from "@/app/types/exam";
+import { QuestionExam } from "@/app/types/exam";
 
-export const useEditExam = (examId: string, title: string, startAt: string, questions: Question[], onClose: () => void) => {
+export const useEditExam = (examId: string, title: string, startAt: string, questions: QuestionExam[], onClose: () => void) => {
   const handleSave = useCallback(async () => {
     const updatedExam = {
       title,
