@@ -1,7 +1,7 @@
 "use client";
 import { FC } from "react";
 import QuizCard from "./QuizCard";
-import { QuizListProps } from "@/app/types/quiz";
+import { QuizListProps } from "@/app/types/quizList";
 import { quizListData } from "@/app/data/quizListData"; // import mảng quiz
 import AI from "../Data/AI";
 import CNJava from "../Data/CNJava";

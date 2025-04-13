@@ -1,6 +1,6 @@
 // lib/data/quizData.ts
 
-import { QuizQuestion } from "@/app/types/quiz";
+import { QuizQuestion } from "@/app/types/quizData";
 
 export const quizLTCBC: QuizQuestion[] = [
   {

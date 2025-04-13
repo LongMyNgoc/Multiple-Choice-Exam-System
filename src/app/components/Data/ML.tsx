@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { quizML } from "@/app/lib/data/ML";
-import { QuizQuestion } from "@/app/types/quiz";
+import { QuizQuestion } from "@/app/types/quizData";
 
 const optionLabels = ["A", "B", "C", "D"];
 

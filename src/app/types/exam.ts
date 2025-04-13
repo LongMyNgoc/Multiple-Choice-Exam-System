@@ -39,3 +39,8 @@ export interface EditExamProps {
   exam: ExamWithStatus;
   onClose: () => void;
 }
+
+export interface ExamListProps {
+    exams: ExamWithStatus[];
+    onSelectExam: (exam: ExamWithStatus) => void;
+}

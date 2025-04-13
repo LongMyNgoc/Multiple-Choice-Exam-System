@@ -40,6 +40,11 @@ const ExamForm = ({
           className="form-control"
           onChange={handleFileImport}
         />
+        <div className="mt-2">
+          <a href="/json/ReactJS.json" download className="text-blue-500 underline">
+            Tải file mẫu (.json)
+          </a>
+        </div>
       </div>
     </>
   );

@@ -1,4 +1,4 @@
-export interface Question {
+export interface QuestionResult {
     question: string;
     options: string[];
     selectedOption: number;
@@ -9,7 +9,7 @@ export interface Question {
 export interface ExamResult {
     _id: string;
     title: string;
-    questions: Question[];
+    questions: QuestionResult[];
     score: number;
     submittedAt: string;
   }

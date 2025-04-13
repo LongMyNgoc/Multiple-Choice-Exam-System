@@ -2,9 +2,12 @@
 import { FC, useEffect, useState } from "react";
 import Link from "next/link";
 import { linkHover } from "@/app/utils/hoverEffects";
-import { QuizListProps } from "@/app/types/quizList"; 
 import useUserEmail from "@/app/hooks/useUserEmail";
 import { getUserRoleByEmail } from "@/app/utils/firestore/getUserRoleByEmail";
+
+interface QuizListProps {
+  setSelectedQuiz: (quiz: string | null) => void;
+}
 
 const Sidebar: FC<QuizListProps> = ({ setSelectedQuiz }) => {
   const UserEmail = useUserEmail();

@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { quizUnity } from "@/app/lib/data/Unity";
-import { QuizQuestion } from "@/app/types/quiz";
+import { QuizQuestion } from "@/app/types/quizData";
 
 const optionLabels = ["A", "B", "C", "D"];
 

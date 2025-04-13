@@ -1,10 +1,10 @@
 import React from "react";
-import { Question } from "@/app/types/exam";
+import { QuestionExam } from "@/app/types/exam";
 
 interface QuestionEditorProps {
-    question: Question;
+    question: QuestionExam;
     index: number;
-    onChange: (index: number, key: keyof Question, value: string | string[]) => void;
+    onChange: (index: number, key: keyof QuestionExam, value: string | string[]) => void;
 }
 
 const optionLabels = ["A", "B", "C", "D"];

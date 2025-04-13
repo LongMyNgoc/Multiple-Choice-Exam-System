@@ -1,22 +1,21 @@
 import React, { useState } from "react";
-import { Question } from "@/app/types/exam";
+import { QuestionExam } from "@/app/types/exam";
 import QuestionEditor from "./QuestionEditor";
 import { EditExamProps } from "@/app/types/exam";
-import { toast } from "react-toastify";
 import { useEditExam } from "@/app/hooks/useEditExam";
 
 const EditExam: React.FC<EditExamProps> = ({ exam, onClose }) => {
   const [title, setTitle] = useState(exam.title);
   const [startAt, setStartAt] = useState(exam.startAt);
-  const [questions, setQuestions] = useState<Question[]>(exam.questions);
+  const [questions, setQuestions] = useState<QuestionExam[]>(exam.questions);
 
   const handleQuestionChange = (
     index: number,
-    key: keyof Question,
+    key: keyof QuestionExam,
     value: string | string[]
   ) => {
     const updatedQuestions = [...questions];
-    updatedQuestions[index] = { ...updatedQuestions[index], [key]: value } as Question;
+    updatedQuestions[index] = { ...updatedQuestions[index], [key]: value } as QuestionExam;
     setQuestions(updatedQuestions);
   };
 
