@@ -5,7 +5,7 @@ import Sidebar from "@/app/components/QuizList/Sidebar";
 import Account from "@/app/components/Account/Account";
 
 const QuizListPage = () => {
-  const [selectedQuiz, setSelectedQuiz] = useState<string | null>(null);
+  const [_selectedQuiz, setSelectedQuiz] = useState<string | null>(null);
 
   return (
     <div className="d-flex flex-column vh-100">
