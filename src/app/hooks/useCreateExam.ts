@@ -36,7 +36,7 @@ const useCreateExam = () => {
       setStartAt(parsed.startAt);
       setQuestions(parsed.questions);
       toast.success("Đã nhập dữ liệu từ file JSON thành công!");
-    } catch (err) {
+    } catch {
       toast.error("Đã xảy ra lỗi khi đọc file JSON.");
     }
   };
@@ -70,7 +70,7 @@ const useCreateExam = () => {
       if (!res.ok) throw new Error("Không thể tạo bộ đề!");
 
       toast.success("Đã tạo bộ đề thành công!");
-    } catch (err) {
+    } catch {
       toast.error("Lỗi khi gửi dữ liệu lên server!");
     }
   };
