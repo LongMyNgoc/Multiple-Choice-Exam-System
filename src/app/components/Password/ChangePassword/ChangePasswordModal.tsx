@@ -14,6 +14,7 @@ const ChangePasswordModal: React.FC<ChangePasswordModalProps> = ({ show, onClose
   const [confirmPassword, setConfirmPassword] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
   const router = useRouter();
+  const clearEmail = useClearEmail();
 
   const handlePasswordChange = async () => {
     if (newPassword !== confirmPassword) {
@@ -43,7 +44,7 @@ const ChangePasswordModal: React.FC<ChangePasswordModalProps> = ({ show, onClose
       toast.error(result.error);
     } else {
       onClose(); // Đóng modal sau khi thay đổi mật khẩu thành công
-      useClearEmail();
+      clearEmail();
       router.push('/');
     }
 

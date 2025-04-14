@@ -19,7 +19,7 @@ export const reauthenticate = async (oldPassword: string): Promise<boolean> => {
     const credentials = EmailAuthProvider.credential(user.email || "", oldPassword);
     await reauthenticateWithCredential(user, credentials); // Xác thực lại người dùng với mật khẩu cũ
     return true;
-  } catch (error) {
+  } catch {
     toast.error("Mật khẩu cũ không đúng. Vui lòng thử lại.");
     return false;
   }

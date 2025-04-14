@@ -12,13 +12,10 @@ const RegisterPassword = () => {
 
     setLoading(true);
 
-    try {
-      await registerWithEmail(email, password); // Dùng mật khẩu người dùng nhập
-    } catch (error) {
-      // Có thể thêm hiển thị lỗi ở đây nếu cần
-    } finally {
-      setLoading(false);
-    }
+    await registerWithEmail(email, password); // Dùng mật khẩu người dùng nhập
+    
+    setLoading(false);
+
   };
 
   return (

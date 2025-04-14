@@ -4,11 +4,15 @@ import { getAllUsers } from "@/app/utils/firestore/getAllUsers";
 import { editUserRoleByEmail } from "@/app/utils/firestore/editUserRoleByEmail";
 import { toast } from "react-toastify";
 
+interface User {
+  email: string;
+  role: string;
+}
 export const roleOptions = ["all", "user", "admin"];
 
 export const useUsersAccount = () => {
-  const [users, setUsers] = useState<any[]>([]);
-  const [filteredUsers, setFilteredUsers] = useState<any[]>([]);
+  const [users, setUsers] = useState<User[]>([]);
+  const [filteredUsers, setFilteredUsers] = useState<User[]>([]);
   const [searchEmail, setSearchEmail] = useState("");
   const [filterRole, setFilterRole] = useState("all");
   const [loading, setLoading] = useState(true);
