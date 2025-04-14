@@ -1,4 +1,10 @@
-import { QuestionFormProps } from "@/app/types/quiz";
+import { Question } from "@/app/types/question";
+
+type QuestionFormProps = {
+    index: number;
+    data: Question;
+    onChange: (updated: Question) => void;
+  };
 
 const QuestionForm = ({ index, data, onChange }: QuestionFormProps) => {
   const updateOption = (optIndex: number, value: string) => {
