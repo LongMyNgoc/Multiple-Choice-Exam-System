@@ -3,6 +3,7 @@
 import React from "react";
 import { ExamViewerProps } from "@/app/types/exam";
 import useExam from "@/app/hooks/useExamViewer";
+import useExamTimer from "@/app/hooks/useExamTimer";
 
 const optionLabels = ["A", "B", "C", "D"];
 
@@ -15,9 +16,21 @@ const ExamViewer: React.FC<ExamViewerProps> = ({ exam }) => {
     handleSubmit,
   } = useExam(exam);
 
+  const remainingTime = useExamTimer(exam.startAt, submitted, handleSubmit);
+
   return (
     <div>
       <h3 className="text-2xl font-bold mb-4">{exam.title}</h3>
+      <div className="mb-4 text-right text-sm text-gray-600">
+        Thời gian còn lại:{" "}
+        <span className="font-semibold text-red-500">
+          {Math.floor(remainingTime / 60)
+            .toString()
+            .padStart(2, "0")}
+          :
+          {(remainingTime % 60).toString().padStart(2, "0")}
+        </span>
+      </div>
       <ul className="space-y-6">
         {exam.questions.map((q, idx) => {
           const isCorrect = answers[idx] === q.correctAnswer;
@@ -25,13 +38,12 @@ const ExamViewer: React.FC<ExamViewerProps> = ({ exam }) => {
           return (
             <li
               key={idx}
-              className={`p-4 border rounded-lg bg-white shadow ${
-                submitted
+              className={`p-4 border rounded-lg bg-white shadow ${submitted
                   ? isCorrect
                     ? "border-green-500"
                     : "border-red-500"
                   : ""
-              }`}
+                }`}
             >
               <p className="font-medium mb-2 flex items-center justify-between">
                 <span>
@@ -39,9 +51,8 @@ const ExamViewer: React.FC<ExamViewerProps> = ({ exam }) => {
                 </span>
                 {submitted && (
                   <span
-                    className={`text-sm font-semibold ${
-                      isCorrect ? "text-green-600" : "text-red-600"
-                    }`}
+                    className={`text-sm font-semibold ${isCorrect ? "text-green-600" : "text-red-600"
+                      }`}
                   >
                     {isCorrect ? "✅ Đúng" : "❌ Sai"}
                   </span>
@@ -78,8 +89,12 @@ const ExamViewer: React.FC<ExamViewerProps> = ({ exam }) => {
       {!submitted ? (
         <div className="mt-6 text-center">
           <button
-            className="px-6 py-2 bg-green-600 text-white rounded hover:bg-green-700"
+            className={`px-6 py-2 rounded text-white ${remainingTime <= 0
+                ? "bg-gray-400 cursor-not-allowed"
+                : "bg-green-600 hover:bg-green-700"
+              }`}
             onClick={handleSubmit}
+            disabled={remainingTime <= 0}
           >
             ✅ Nộp bài
           </button>

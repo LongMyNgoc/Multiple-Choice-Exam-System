@@ -1,4 +1,4 @@
-import { Question } from "@/app/types/question";
+import { Question } from "@/app/types/createExam";
 
 type QuestionFormProps = {
     index: number;

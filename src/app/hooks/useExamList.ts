@@ -48,7 +48,7 @@ const useExamList = () => {
   const isClickable = (exam: ExamWithStatus) => {
     const now = dayjs();
     const start = dayjs(exam.startAt);
-    const end = start.add(1, "hour");
+    const end = start.add(0.5, "hour");
     return now.isAfter(start) && now.isBefore(end);
   };
 
