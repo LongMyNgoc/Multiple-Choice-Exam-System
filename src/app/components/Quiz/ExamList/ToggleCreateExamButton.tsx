@@ -1,4 +1,7 @@
-import { ToggleCreateExamButtonProps } from "@/app/types/exam";
+interface ToggleCreateExamButtonProps {
+    show: boolean;
+    onToggle: () => void;
+  }
 
 const ToggleCreateExamButton = ({ show, onToggle }: ToggleCreateExamButtonProps) => {
     return (

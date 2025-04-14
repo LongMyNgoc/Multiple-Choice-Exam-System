@@ -1,7 +1,6 @@
 "use client";
 import { FC } from "react";
 import QuizCard from "./QuizCard";
-import { QuizListProps } from "@/app/types/quizList";
 import { quizListData } from "@/app/data/quizListData"; // import mảng quiz
 import AI from "../Data/AI";
 import CNJava from "../Data/CNJava";
@@ -29,6 +28,11 @@ import PTTKHDT from "../Data/PTTKHDT";
 import ReactNative from "../Data/ReactNative";
 import TKWeb from "../Data/TKWeb";
 import Unity from "../Data/Unity";
+
+interface QuizListProps {
+  selectedQuiz: string | null;
+  setSelectedQuiz: (quiz: string | null) => void;
+}
 
 const QuizList: FC<QuizListProps> = ({ selectedQuiz, setSelectedQuiz }) => {
   switch (selectedQuiz){

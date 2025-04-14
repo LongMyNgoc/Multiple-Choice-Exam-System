@@ -1,6 +1,13 @@
 "use client";
 import React from "react";
-import { ExamFormProps } from "@/app/types/exam";
+
+type ExamFormProps = {
+  examTitle: string;
+  setExamTitle: (title: string) => void;
+  startAt: string;
+  setStartAt: (value: string) => void;
+  handleFileImport: (e: React.ChangeEvent<HTMLInputElement>) => void;
+};
 
 const ExamForm = ({
   examTitle,

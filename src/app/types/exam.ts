@@ -1,12 +1,4 @@
-export type ExamFormProps = {
-  examTitle: string;
-  setExamTitle: (title: string) => void;
-  startAt: string;
-  setStartAt: (value: string) => void;
-  handleFileImport: (e: React.ChangeEvent<HTMLInputElement>) => void;
-};
-
-export interface Question {
+export interface QuestionExam {
   question: string;
   options: string[];
   correctAnswer: number;
@@ -17,7 +9,7 @@ export interface ExamType {
   title: string;
   startAt: string;
   createdAt: string;
-  questions: Question[];
+  questions: QuestionExam[];
 }
 
 export type ExamViewerProps = {
@@ -29,11 +21,6 @@ export type ExamStatus = "Đang diễn ra" | "Sắp diễn ra" | "Đã kết th�
 export type ExamWithStatus = ExamType & {
   status: ExamStatus;
 };
-
-export interface ToggleCreateExamButtonProps {
-  show: boolean;
-  onToggle: () => void;
-}
 
 export interface EditExamProps {
   exam: ExamWithStatus;

@@ -1,7 +1,12 @@
 "use client";
 import React from "react";
 import Image from "next/image"; // Import Image từ next/image
-import { QuizCardProps } from "@/app/types/quizList";
+
+interface QuizCardProps {
+  image: string;
+  title: string;
+  onClick: () => void;
+} 
 
 const QuizCard: React.FC<QuizCardProps> = ({ image, title, onClick }) => {
   return (
