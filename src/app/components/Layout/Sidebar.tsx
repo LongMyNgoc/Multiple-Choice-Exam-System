@@ -91,6 +91,15 @@ const Sidebar: FC<QuizListProps> = ({ setSelectedQuiz }) => {
               >
                 <i className="bi bi-plus-circle me-2"></i> Quiz
               </Link>
+              <Link
+                href="/pages/Result"
+                onClick={() => setSelectedQuiz(null)}
+                className="list-group-item list-group-item-action bg-transparent text-white d-flex align-items-center fs-4"
+                onMouseEnter={(e) => linkHover(e, "in")}
+                onMouseLeave={(e) => linkHover(e, "out")}
+              >
+                <i className="bi bi-bar-chart me-2"></i> Result
+              </Link>
             </>
           )}
         </div>

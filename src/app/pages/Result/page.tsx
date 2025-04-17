@@ -2,9 +2,9 @@
 import { useState } from "react";
 import Topbar from "@/app/components/Layout/Topbar";
 import Sidebar from "@/app/components/Layout/Sidebar";
-import Quiz from "@/app/components/Quiz/ExamList/Quiz";
+import Result from "@/app/components/Result/Result";
 
-const QuizPage = () => {
+const ResultPage = () => {
   const [, setSelectedQuiz] = useState<string | null>(null);
 
   return (
@@ -18,12 +18,12 @@ const QuizPage = () => {
         <Sidebar setSelectedQuiz={setSelectedQuiz}/>
 
         {/* Vùng hiển thị QuizList */}
-        <div className="flex-grow-1 p-3 ">
-          <Quiz />
+        <div className="flex-grow-1 p-3">
+          <Result />
         </div>
       </div>
     </div>
   );
 };
 
-export default QuizPage;
+export default ResultPage;

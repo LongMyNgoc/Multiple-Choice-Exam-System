@@ -1,10 +1,10 @@
 "use client";
 import { useState } from "react";
-import Topbar from "@/app/components/QuizList/Topbar";
-import Sidebar from "@/app/components/QuizList/Sidebar";
+import Topbar from "@/app/components/Layout/Topbar";
+import Sidebar from "@/app/components/Layout/Sidebar";
 import ExamList from "@/app/components/Exam/ExamList";
 
-const QuizListPage = () => {
+const ExamPage = () => {
   const [, setSelectedQuiz] = useState<string | null>(null);
 
   return (
@@ -26,4 +26,4 @@ const QuizListPage = () => {
   );
 };
 
-export default QuizListPage;
+export default ExamPage;
