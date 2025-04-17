@@ -4,6 +4,12 @@ import QuestionEditor from "./QuestionEditor";
 import { EditExamProps } from "@/app/types/exam";
 import { useEditExam } from "@/app/hooks/useEditExam";
 
+function toVNDatetimeLocal(dateStr: string): string {
+  const date = new Date(dateStr);
+  date.setHours(date.getHours() + 7); // hiển thị theo giờ VN
+  return date.toISOString().slice(0, 16); // format YYYY-MM-DDTHH:mm
+}
+
 const EditExam: React.FC<EditExamProps> = ({ exam, onClose }) => {
   const [title, setTitle] = useState(exam.title);
   const [startAt, setStartAt] = useState(exam.startAt);
@@ -53,7 +59,7 @@ const EditExam: React.FC<EditExamProps> = ({ exam, onClose }) => {
         <label className="form-label"><strong>Bắt đầu:</strong></label>
         <input
           type="datetime-local"
-          value={new Date(startAt).toISOString().slice(0, 16)}
+          value={toVNDatetimeLocal(startAt)}
           onChange={(e) => setStartAt(new Date(e.target.value).toISOString())}
           className="form-control"
         />

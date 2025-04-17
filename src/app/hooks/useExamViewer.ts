@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { ExamViewerProps } from "@/app/types/exam";
 import useUserEmail from "@/app/hooks/useUserEmail";
+import { toast } from 'react-toastify';
 
 const useExamViewer = (exam: ExamViewerProps["exam"]) => {
   const [answers, setAnswers] = useState<{ [key: number]: number }>({});
@@ -40,9 +41,16 @@ const useExamViewer = (exam: ExamViewerProps["exam"]) => {
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(submissionData),
     })
-      .then((res) => res.json())
-      .then((data) => console.log("Saved result:", data))
-      .catch((err) => console.error("Save failed:", err));
+      .then(async (res) => {
+        const data = await res.json();
+        if (!res.ok || data.success === false) {
+          throw new Error(data.message || "Nộp bài thất bại");
+        }
+        toast.success("Nộp bài thành công!");
+      })
+      .catch((err) => {
+        toast.error(err.message || "Không thể kết nối đến máy chủ");
+      });    
   };
 
   return {
