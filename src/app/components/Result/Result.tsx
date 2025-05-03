@@ -12,6 +12,7 @@ const Result = () => {
     handleExamClick,
     handleUserClick,
     handleBackToExamList,
+    handleBackToExamDetail
   } = useExamResultList();
 
   // State for searching exam and user
@@ -92,7 +93,7 @@ const Result = () => {
 
       {/* Hiển thị chi tiết bài thi khi chọn user */}
       {selectedUser && selectedExam && (
-        <ExamDetail exam={selectedExam} onClose={() => handleBackToExamList()} />
+        <ExamDetail exam={selectedExam} onClose={() => handleBackToExamDetail()} />
       )}
     </div>
   );

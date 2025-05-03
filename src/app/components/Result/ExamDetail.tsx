@@ -2,7 +2,16 @@ import { ExamResultProps } from "@/app/types/examResult";
 
 const ExamDetail = ({ exam, onClose }: ExamResultProps) => {
   return (
-    <div className="mt-4">
+    <div className="mt-4 position-relative">
+      {onClose && (
+        <button
+          className="btn btn-sm btn-danger position-absolute"
+          style={{ top: 0, right: 0 }}
+          onClick={onClose}
+        >
+          ✕
+        </button>
+      )}
       <h4>{exam.title}</h4>
       <p><strong>Score:</strong> {exam.score}</p>
       <p><strong>Submitted At:</strong> {new Date(exam.submittedAt).toLocaleString()}</p>
@@ -20,11 +29,6 @@ const ExamDetail = ({ exam, onClose }: ExamResultProps) => {
           </li>
         ))}
       </ul>
-      {onClose && (
-        <button className="btn btn-secondary mt-3" onClick={onClose}>
-          Đóng
-        </button>
-      )}
     </div>
   );
 };

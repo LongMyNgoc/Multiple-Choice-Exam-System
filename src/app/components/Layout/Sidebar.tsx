@@ -68,7 +68,7 @@ const Sidebar: FC<QuizListProps> = ({ setSelectedQuiz }) => {
                 onMouseEnter={(e) => linkHover(e, "in")}
                 onMouseLeave={(e) => linkHover(e, "out")}
               >
-                <i className="bi bi-plus-circle me-2"></i> Exam
+                <i className="bi bi-pencil-square me-2"></i> Exam
               </Link>
 
           {role === "admin" && (

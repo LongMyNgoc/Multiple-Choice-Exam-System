@@ -48,6 +48,10 @@ const useExamResultList = () => {
     setSelectedUser(null);
   };
 
+  const handleBackToExamDetail = () => {
+    setSelectedUser(null);
+  };
+
   return {
     results,
     selectedExam,
@@ -56,6 +60,7 @@ const useExamResultList = () => {
     handleExamClick,
     handleUserClick,
     handleBackToExamList,
+    handleBackToExamDetail
   };
 };
 

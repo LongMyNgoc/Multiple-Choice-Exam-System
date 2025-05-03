@@ -20,6 +20,11 @@ export const metadata: Metadata = {
   title: "Multiple Choice Exam System",
   description: "Ứng dụng tạo câu hỏi trắc nghiệm, tổ chức thi và quản lý kết quả thi. Cung cấp nhiều loại câu hỏi cho người dùng với các tính năng quản lý dễ dàng.",
   keywords: "trắc nghiệm, thi trực tuyến, quản lý câu hỏi, hệ thống thi, ứng dụng thi, multiple choice, quản lý kết quả thi",
+  icons: {
+    icon: [
+      { url: "/favicon-v2.png", sizes: "32x32", type: "image/png" },
+    ],
+  },
 };
 
 export default function RootLayout({
