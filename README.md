@@ -48,7 +48,7 @@ Sau khi chạy, hệ thống sẽ khởi động tại `http://localhost:3000`.
 
 ## Liên Kết Hệ Thống
 - **Back-End (GitHub)**: [Multiple-Choice-Exam-System-BE](https://github.com/LongMyNgoc/Multiple-Choice-Exam-System-BE.git)
-- **Back-End (Railway)**: 
+- **Back-End (Render)**: [Multiple-Choice-Exam-System-BE-Render](https://multiple-choice-exam-system-be.onrender.com/)
 - **Front-End (GitHub)**: [Multiple-Choice-Exam-System](https://github.com/LongMyNgoc/Multiple-Choice-Exam-System.git)
 - **Front-End (Vercel)**: [Xem website](https://multiple-choice-eta.vercel.app/)
 
