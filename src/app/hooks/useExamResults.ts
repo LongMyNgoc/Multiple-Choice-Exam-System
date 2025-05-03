@@ -12,7 +12,7 @@ const useExamResults = (userEmail: string | null) => {
 
     setLoading(true);
     axios
-      .get(`http://localhost:3001/exam-result?userEmail=${userEmail}`)
+      .get(`https://multiple-choice-exam-system-be.onrender.com/exam-result?userEmail=${userEmail}`)
       .then((res) => setData(res.data))
       .catch((err) => console.error("Error fetching exam results:", err))
       .finally(() => setLoading(false));

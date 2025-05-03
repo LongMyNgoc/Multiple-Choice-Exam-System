@@ -61,7 +61,7 @@ const useCreateExam = () => {
     };
 
     try {
-      const res = await fetch("http://localhost:3001/exams", {
+      const res = await fetch("https://multiple-choice-exam-system-be.onrender.com/exams", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(examData),

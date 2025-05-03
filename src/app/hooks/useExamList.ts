@@ -19,7 +19,7 @@ const useExamList = () => {
   useEffect(() => {
     const fetchExams = async () => {
       try {
-        const res = await fetch("http://localhost:3001/exams/all");
+        const res = await fetch("https://multiple-choice-exam-system-be.onrender.com/exams/all");
         const data: ExamType[] = await res.json();
 
         const examsWithStatus: ExamWithStatus[] = data.map((exam) => ({

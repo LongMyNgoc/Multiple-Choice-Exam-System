@@ -36,7 +36,7 @@ const useExamViewer = (exam: ExamViewerProps["exam"]) => {
       submittedAt: new Date().toISOString(),
     };
 
-    fetch("http://localhost:3001/exam-result", {
+    fetch("https://multiple-choice-exam-system-be.onrender.com/exam-result", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(submissionData),

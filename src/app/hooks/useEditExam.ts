@@ -12,7 +12,7 @@ export const useEditExam = (examId: string, title: string, startAt: string, ques
     };
 
     try {
-      const response = await fetch(`http://localhost:3001/exams/${examId}`, {
+      const response = await fetch(`https://multiple-choice-exam-system-be.onrender.com/exams/${examId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -38,7 +38,7 @@ export const useEditExam = (examId: string, title: string, startAt: string, ques
     if (!confirmDelete) return;
 
     try {
-      const response = await fetch(`http://localhost:3001/exams/${examId}`, {
+      const response = await fetch(`https://multiple-choice-exam-system-be.onrender.com/exams/${examId}`, {
         method: "DELETE",
       });
 

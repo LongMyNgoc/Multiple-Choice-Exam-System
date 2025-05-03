@@ -11,7 +11,7 @@ const useExamResultList = () => {
   useEffect(() => {
     // Lấy danh sách các đề thi
     axios
-      .get(`http://localhost:3001/exam-result/all`)
+      .get(`https://multiple-choice-exam-system-be.onrender.com/exam-result/all`)
       .then((res) => setResults(res.data))
       .catch((err) => console.error(err));
   }, []);
@@ -21,7 +21,7 @@ const useExamResultList = () => {
     setSelectedExam(exam);
     setSelectedUser(null);  // Reset user khi thay đổi đề thi
     axios
-      .get(`http://localhost:3001/exam-result/by-title/${exam.title}`)
+      .get(`https://multiple-choice-exam-system-be.onrender.com/exam-result/by-title/${exam.title}`)
       .then((res) => {
         const userEmails = res.data.map((result: ExamResult) => result.userEmail);
         setUsers(userEmails);
@@ -35,7 +35,7 @@ const useExamResultList = () => {
 
     setSelectedUser(userEmail);
     axios
-      .get(`http://localhost:3001/exam-result/detail/${selectedExam.title}/${userEmail}`)
+      .get(`https://multiple-choice-exam-system-be.onrender.com/exam-result/detail/${selectedExam.title}/${userEmail}`)
       .then((res) => {
         setSelectedExam(res.data);  // Cập nhật lại thông tin chi tiết bài thi
       })
