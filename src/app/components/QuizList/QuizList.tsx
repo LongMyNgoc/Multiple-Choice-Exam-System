@@ -91,15 +91,17 @@ const QuizList: FC<QuizListProps> = ({ selectedQuiz, setSelectedQuiz }) => {
   }
 
   return (
-    <div className="d-flex flex-wrap gap-3">
-      {quizListData.map((quiz) => (
-        <QuizCard
-          key={quiz.id}
-          image={quiz.image}
-          title={quiz.title}
-          onClick={() => setSelectedQuiz(quiz.id)}
-        />
-      ))}
+    <div className="d-flex justify-content-center">
+      <div className="d-flex flex-wrap gap-3 justify-content-center">
+        {quizListData.map((quiz) => (
+          <QuizCard
+            key={quiz.id}
+            image={quiz.image}
+            title={quiz.title}
+            onClick={() => setSelectedQuiz(quiz.id)}
+          />
+        ))}
+      </div>
     </div>
   );
 };

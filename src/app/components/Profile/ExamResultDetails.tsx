@@ -5,7 +5,7 @@ import { ExamResultProps } from "@/app/types/examResult";
 
 const ExamResultDetails: React.FC<ExamResultProps> = ({ exam, onClose }) => {
   return (
-    <div className="mt-3 p-4 border rounded bg-light shadow-sm">
+    <div className="mt-3 p-2 border rounded bg-light shadow-sm">
       <div className="d-flex justify-content-between align-items-center">
         <h5 className="fw-bold mb-3">Kết quả bài: {exam.title}</h5>
         {onClose && (

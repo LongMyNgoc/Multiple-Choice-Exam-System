@@ -1,0 +1,36 @@
+/* fontsize.module.css */
+
+/* Cỡ chữ mặc định cho các thiết bị nhỏ (mobile) */
+.heading {
+    font-size: 1rem; /* Cỡ chữ mặc định cho các thiết bị nhỏ */
+    line-height: 1.4;
+  }
+  
+  /* Khi màn hình rộng hơn 576px (tablet) */
+  @media (min-width: 576px) {
+    .heading {
+      font-size: 1.5rem; /* Cỡ chữ lớn hơn cho tablet */
+    }
+  }
+  
+  /* Khi màn hình rộng hơn 768px (laptop) */
+  @media (min-width: 768px) {
+    .heading {
+      font-size: 2rem; /* Cỡ chữ lớn cho laptop */
+    }
+  }
+  
+  /* Khi màn hình rộng hơn 992px (desktop) */
+  @media (min-width: 992px) {
+    .heading {
+      font-size: 2.5rem; /* Cỡ chữ lớn cho desktop */
+    }
+  }
+  
+  /* Khi màn hình rất lớn (laptop lớn hoặc màn hình widescreen) */
+  @media (min-width: 1200px) {
+    .heading {
+      font-size: 3rem; /* Cỡ chữ lớn cho màn hình rất lớn */
+    }
+  }
+  

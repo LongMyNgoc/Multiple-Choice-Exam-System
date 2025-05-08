@@ -13,10 +13,10 @@ const Account = () => {
   } = useUsersAccount();
 
   return (
-    <div className="container mt-4">
-      <h2 className="mb-4">Danh sách tài khoản</h2>
+    <div>
+      <h2 className="mt-4">Danh sách tài khoản</h2>
 
-      <div className="d-flex flex-column flex-md-row align-items-md-center gap-3 mb-4 justify-content-between">
+      <div className="d-flex flex-column flex-md-row align-items-md-center gap-3 mt-4 mb-4 justify-content-between">
   <div className="flex-grow-1">
     <input
       type="text"

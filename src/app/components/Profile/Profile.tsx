@@ -19,8 +19,8 @@ const Profile = () => {
   const selectedExam = results.find((exam) => exam._id === selectedExamId);
 
   return (
-    <div className="container my-3">
-      <div className="d-flex flex-column flex-md-row align-items-center justify-content-between gap-4 p-4 border rounded shadow bg-white">
+    <div>
+      <div className="d-flex flex-column flex-md-row align-items-center justify-content-between gap-4 p-3 border rounded shadow bg-white">
         <div className="d-flex flex-column align-items-center">
           <FaUserCircle size={100} className="text-success mb-3" />
           <div className="fw-bold fs-5">{userEmail || "Chưa đăng nhập"}</div>

@@ -12,6 +12,7 @@ interface QuizListProps {
 const Sidebar: FC<QuizListProps> = ({ setSelectedQuiz }) => {
   const UserEmail = useUserEmail();
   const [role, setRole] = useState<string | null>(null);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
 
   useEffect(() => {
     const fetchRole = async () => {
@@ -32,14 +33,23 @@ const Sidebar: FC<QuizListProps> = ({ setSelectedQuiz }) => {
     <div className="d-flex">
       <div
         className="bg-success text-white vh-100 d-flex flex-column p-3 sticky-top"
-        style={{ padding: "10px" }}
+        style={{
+          padding: "10px",
+          width: isSidebarOpen ? "250px" : "80px",
+          transition: "width 0.3s",
+          overflow: "hidden"
+        }}
       >
-        {/* Logo / Brand */}
-        <div className="mb-4 text-center">
+        {/* Toggle button - My Dashboard */}
+        <div
+          className="mb-4 text-center"
+          onClick={() => setIsSidebarOpen(!isSidebarOpen)}
+          style={{ cursor: "pointer" }}
+        >
           <i className="bi bi-box-seam fs-3"></i>
-          <h4 className="mt-2">My Dashboard</h4>
+          {isSidebarOpen && <h4 className="mt-2">My Dashboard</h4>}
         </div>
-
+  
         {/* Navigation Links */}
         <div className="list-group list-group-flush flex-grow-1">
           <Link
@@ -49,9 +59,10 @@ const Sidebar: FC<QuizListProps> = ({ setSelectedQuiz }) => {
             onMouseEnter={(e) => linkHover(e, "in")}
             onMouseLeave={(e) => linkHover(e, "out")}
           >
-            <i className="bi bi-speedometer2 me-2"></i> Dashboard
+            <i className="bi bi-speedometer2 me-2"></i>
+            {isSidebarOpen && "Dashboard"}
           </Link>
-
+  
           <Link
             href="/pages/Profile"
             onClick={() => setSelectedQuiz(null)}
@@ -59,18 +70,21 @@ const Sidebar: FC<QuizListProps> = ({ setSelectedQuiz }) => {
             onMouseEnter={(e) => linkHover(e, "in")}
             onMouseLeave={(e) => linkHover(e, "out")}
           >
-            <i className="bi bi-person-circle me-2"></i> Profile
+            <i className="bi bi-person-circle me-2"></i>
+            {isSidebarOpen && "Profile"}
           </Link>
+  
           <Link
-                href="/pages/Exam"
-                onClick={() => setSelectedQuiz(null)}
-                className="list-group-item list-group-item-action bg-transparent text-white d-flex align-items-center fs-4"
-                onMouseEnter={(e) => linkHover(e, "in")}
-                onMouseLeave={(e) => linkHover(e, "out")}
-              >
-                <i className="bi bi-pencil-square me-2"></i> Exam
-              </Link>
-
+            href="/pages/Exam"
+            onClick={() => setSelectedQuiz(null)}
+            className="list-group-item list-group-item-action bg-transparent text-white d-flex align-items-center fs-4"
+            onMouseEnter={(e) => linkHover(e, "in")}
+            onMouseLeave={(e) => linkHover(e, "out")}
+          >
+            <i className="bi bi-pencil-square me-2"></i>
+            {isSidebarOpen && "Exam"}
+          </Link>
+  
           {role === "admin" && (
             <>
               <Link
@@ -80,8 +94,10 @@ const Sidebar: FC<QuizListProps> = ({ setSelectedQuiz }) => {
                 onMouseEnter={(e) => linkHover(e, "in")}
                 onMouseLeave={(e) => linkHover(e, "out")}
               >
-                <i className="bi bi-gear-fill me-2"></i> Accounts
+                <i className="bi bi-gear-fill me-2"></i>
+                {isSidebarOpen && "Accounts"}
               </Link>
+  
               <Link
                 href="/pages/Quiz"
                 onClick={() => setSelectedQuiz(null)}
@@ -89,8 +105,10 @@ const Sidebar: FC<QuizListProps> = ({ setSelectedQuiz }) => {
                 onMouseEnter={(e) => linkHover(e, "in")}
                 onMouseLeave={(e) => linkHover(e, "out")}
               >
-                <i className="bi bi-plus-circle me-2"></i> Quiz
+                <i className="bi bi-plus-circle me-2"></i>
+                {isSidebarOpen && "Quiz"}
               </Link>
+  
               <Link
                 href="/pages/Result"
                 onClick={() => setSelectedQuiz(null)}
@@ -98,14 +116,15 @@ const Sidebar: FC<QuizListProps> = ({ setSelectedQuiz }) => {
                 onMouseEnter={(e) => linkHover(e, "in")}
                 onMouseLeave={(e) => linkHover(e, "out")}
               >
-                <i className="bi bi-bar-chart me-2"></i> Result
+                <i className="bi bi-bar-chart me-2"></i>
+                {isSidebarOpen && "Result"}
               </Link>
             </>
           )}
         </div>
       </div>
     </div>
-  );
+  );  
 };
 
 export default Sidebar;
